@@ -1,0 +1,50 @@
+/*
+Error: Invalid CSS after "...; font-family: ": expected expression (e.g. 1px, bold), was ";"
+        on line 23 of static/styles/scss/main.scss
+
+18: $light-red: #FF6E68;
+19: $footer: #2A222D;
+20: $yellow: #ECBB5C;
+21: 
+22: 
+23: body, html {margin: 0; padding: 0; height: 100%; font-family: ;
+
+Backtrace:
+static/styles/scss/main.scss:23
+/usr/lib/ruby/vendor_ruby/sass/scss/parser.rb:1207:in `expected'
+/usr/lib/ruby/vendor_ruby/sass/script/lexer.rb:229:in `expected!'
+/usr/lib/ruby/vendor_ruby/sass/script/parser.rb:710:in `assert_expr'
+/usr/lib/ruby/vendor_ruby/sass/script/parser.rb:75:in `parse'
+/usr/lib/ruby/vendor_ruby/sass/scss/parser.rb:1063:in `sass_script'
+/usr/lib/ruby/vendor_ruby/sass/scss/parser.rb:909:in `value!'
+/usr/lib/ruby/vendor_ruby/sass/scss/parser.rb:778:in `block in try_declaration'
+/usr/lib/ruby/vendor_ruby/sass/scss/parser.rb:1183:in `rethrow'
+/usr/lib/ruby/vendor_ruby/sass/scss/parser.rb:791:in `try_declaration'
+/usr/lib/ruby/vendor_ruby/sass/scss/parser.rb:720:in `declaration_or_ruleset'
+/usr/lib/ruby/vendor_ruby/sass/scss/parser.rb:685:in `block_child'
+/usr/lib/ruby/vendor_ruby/sass/scss/parser.rb:677:in `block_contents'
+/usr/lib/ruby/vendor_ruby/sass/scss/parser.rb:666:in `block'
+/usr/lib/ruby/vendor_ruby/sass/scss/parser.rb:658:in `ruleset'
+/usr/lib/ruby/vendor_ruby/sass/scss/parser.rb:684:in `block_child'
+/usr/lib/ruby/vendor_ruby/sass/scss/parser.rb:677:in `block_contents'
+/usr/lib/ruby/vendor_ruby/sass/scss/parser.rb:125:in `stylesheet'
+/usr/lib/ruby/vendor_ruby/sass/scss/parser.rb:41:in `parse'
+/usr/lib/ruby/vendor_ruby/sass/engine.rb:406:in `_to_tree'
+/usr/lib/ruby/vendor_ruby/sass/engine.rb:381:in `_render_with_sourcemap'
+/usr/lib/ruby/vendor_ruby/sass/engine.rb:298:in `render_with_sourcemap'
+/usr/lib/ruby/vendor_ruby/sass/plugin/compiler.rb:492:in `update_stylesheet'
+/usr/lib/ruby/vendor_ruby/sass/plugin/compiler.rb:215:in `block in update_stylesheets'
+/usr/lib/ruby/vendor_ruby/sass/plugin/compiler.rb:209:in `each'
+/usr/lib/ruby/vendor_ruby/sass/plugin/compiler.rb:209:in `update_stylesheets'
+/usr/lib/ruby/vendor_ruby/sass/plugin/compiler.rb:294:in `watch'
+/usr/lib/ruby/vendor_ruby/sass/plugin.rb:109:in `method_missing'
+/usr/lib/ruby/vendor_ruby/sass/exec/sass_scss.rb:356:in `watch_or_update'
+/usr/lib/ruby/vendor_ruby/sass/exec/sass_scss.rb:51:in `process_result'
+/usr/lib/ruby/vendor_ruby/sass/exec/base.rb:52:in `parse'
+/usr/lib/ruby/vendor_ruby/sass/exec/base.rb:19:in `parse!'
+/usr/bin/scss:8:in `<main>'
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Error: Invalid CSS after \"...; font-family: \": expected expression (e.g. 1px, bold), was \";\"\A         on line 23 of static/styles/scss/main.scss\A \A 18: $light-red: #FF6E68;\A 19: $footer: #2A222D;\A 20: $yellow: #ECBB5C;\A 21: \A 22: \A 23: body, html {margin: 0; padding: 0; height: 100%; font-family: ;"; }
