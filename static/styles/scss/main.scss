@@ -1,14 +1,11 @@
 //Fonts
 @import url('https://fonts.googleapis.com/css?family=Lexend+Deca|Libre+Caslon+Display&display=swap');
 //Mixins
-@mixin header {
-    
-}
-
 @mixin text {
     font-family: 'Lexend Deca', sans-serif;
-    font-weight: 350;
+    font-weight: 300;
     font-style: normal;
+    color: $default-text;
 }
 
 //Colors
@@ -19,5 +16,38 @@ $light-red: #FF6E68;
 $footer: #2A222D;
 $yellow: #ECBB5C;
 
+body,
+html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: "Lexend Deca", sans-serif;
+}
 
-body, html {margin: 0; padding: 0; height: 100%; font-family: ;
+.main {
+    background-color: $main-bg;
+}
+
+.navbar {
+    background-color: $red!important;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: $light-red;
+}
+img {
+    vertical-align: middle;
+    border-style: none;
+    max-width: 100%;
+}
+
+.carousel .slide {
+    max-height: 60%;
+    min-height: 60%;
+    max-width: 100%;
+    min-width: 100%;
+}
