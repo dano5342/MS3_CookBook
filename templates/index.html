@@ -57,9 +57,9 @@
 
 
     <div class="container ind-content">
-        <h3>Some Recipe Examples</h3>
+        <h3>Our Recipes</h3>
         <div class="container">
-            <div class="row">
+            <div class="row" id="#recipes">
                 {% for r in recipe %}
                 <div class="col card-container">
                     <div class="card text-center" style="width: 18rem;">
@@ -74,28 +74,10 @@
                 {% endfor %}
             </div>
         </div>
-        <div class="container">
-            <hr class="featurette-divider">
 
-
-            <h3> Some World-Wide Cuisine Types!</h3>
-
-            {% for c in cuisine %}
-            <hr class="featurette-divider">
-
-            <div class="row featurette">
-                <div class="col-md-7">
-                    <h2 class="featurette-heading">{{ c.type }}<span class="text-muted">   {{ c.tag }}</span></h2>
-                    <p class="lead">{{ c.description }}</p>
-                </div>
-                <div class="col-md-5">
-                    <img class="featurette-image img-fluid mx-auto" src="{{ c.flag_url }}" alt="{{ c.type }}" style="width: 260; height: 170;">
-                </div>
-            </div>
-            {% endfor %}
-        </div>
-        <div class="container">
-            <h6>About</h6>
-            <p>This site is a project for Code Institute, I hope that it can inspire users to cook more healthily and more often.</p>
-        </div>
-        {% endblock %} {% block footer %} {% include "includes/footer.html" %} {% endblock %}
+    </div>
+    <div class="container">
+        <h6>About</h6>
+        <p>This site is a project for Code Institute, I hope that it can inspire users to cook more healthily and more often.</p>
+    </div>
+    {% endblock %} {% block footer %} {% include "includes/footer.html" %} {% endblock %}
