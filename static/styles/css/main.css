@@ -10,10 +10,16 @@ body, html {
   background-color: #D4CAB1; }
 
 .navbar {
-  background-color: #BC0301 !important; }
+  background-color: #BC0301 !important;
+  position: fixed;
+  z-index: 999;
+  width: 100%; }
 
 .navbar-light .navbar-nav .nav-link {
   color: #FF6E68; }
+
+.nav-btn {
+  padding-left: 10px; }
 
 .carousel-inner .carousel-item img {
   margin: 0 auto; }
@@ -32,6 +38,19 @@ body, html {
   padding-bottom: 20px;
   background-color: #2A222D;
   color: #D4CAB1; }
+
+.about-content {
+  padding-top: 25px; }
+
+.btn-primary {
+  background-color: #2A222D;
+  border-color: #2A222D;
+  color: #FF6E68; }
+
+.btn-primary:hover {
+  background-color: #FF6E68;
+  border-color: #FF6E68;
+  color: #BC0301; }
 
 /* Recipe Content Styling */
 .recipe-container {

@@ -16,6 +16,7 @@ $light-red: #FF6E68;
 $footer: #2A222D;
 $yellow: #ECBB5C;
 /* Main Content Style */
+
 body,
 html {
     margin: 0;
@@ -30,11 +31,20 @@ html {
 
 .navbar {
     background-color: $red!important;
+    position: fixed;
+    z-index: 999;
+    width: 100%;
+
 }
 
 .navbar-light .navbar-nav .nav-link {
     color: $light-red;
 }
+
+.nav-btn {
+    padding-left: 10px;
+}
+
 
 .carousel-inner .carousel-item img {
     margin: 0 auto;
@@ -59,6 +69,22 @@ html {
     color: $main-bg;
 }
 
+.about-content {
+    padding-top: 25px;
+}
+
+.btn-primary {
+    background-color: $default-text;
+    border-color: $default-text;
+    color: $light-red;
+}
+
+.btn-primary:hover{
+    background-color: $light-red;
+    border-color: $light-red;
+    color: $red;
+}
+
 /* Recipe Content Styling */
 
 .recipe-container {
@@ -69,6 +95,7 @@ html {
     width: 600px;
     height: 375px;
 }
+
 
 /*------------------------Media Queries */
 
@@ -83,7 +110,7 @@ html {
         display: none;
     }
 
-    .card-container{
+    .card-container {
         padding-top: 12px;
     }
 }
