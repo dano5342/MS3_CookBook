@@ -14,15 +14,36 @@ body, html {
 .navbar-light .navbar-nav .nav-link {
   color: #FF6E68; }
 
-img {
-  vertical-align: middle;
-  border-style: none;
-  max-width: 100%; }
+.carousel-inner .carousel-item img {
+  margin: 0 auto; }
 
-.carousel .slide {
-  max-height: 60%;
-  min-height: 60%;
-  max-width: 100%;
-  min-width: 100%; }
+.ind-content {
+  padding-top: 20px; }
+
+.card-img-top {
+  width: 100%;
+  border-top-left-radius: calc(.25rem - 1px);
+  border-top-right-radius: calc(.25rem - 1px);
+  height: 160px; }
+
+.footer {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  background-color: #2A222D;
+  color: #D4CAB1; }
+
+/*------------------------Media Queries */
+@media screen and (max-width: 767px) {
+  .carousel-item.active {
+    height: 30vh; }
+
+  .carousel-indicators {
+    display: none; }
+
+  .buttons-wrapper {
+    display: none; }
+
+  .card-container {
+    padding-top: 12px; } }
 
 /*# sourceMappingURL=main.css.map */

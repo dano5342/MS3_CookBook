@@ -3,7 +3,7 @@ import math
 import re
 import os 
 from flask import Flask, render_template, redirect, request, url_for
-from flask_pymongo import PyMongo
+from flask_pymongo import PyMongo, pymongo
 from bson.objectid import ObjectId
 
 app = Flask(__name__)
@@ -16,8 +16,11 @@ mongo = PyMongo(app)
 
 @app.route('/')
 def index():
-    return render_template("index.html", recipe=mongo.db.Recipes.find())
-    
+    return render_template("index.html", recipe=mongo.db.Recipes.find(),
+                            cuisine=mongo.db.Cuisines.find())
+
+def recipe():
+    return render_template()
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
         port=int(os.environ.get('PORT')),
