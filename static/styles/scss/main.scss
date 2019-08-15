@@ -79,7 +79,7 @@ html {
     color: $light-red;
 }
 
-.btn-primary:hover{
+.btn-primary:hover {
     background-color: $light-red;
     border-color: $light-red;
     color: $red;
@@ -96,6 +96,20 @@ html {
     height: 375px;
 }
 
+/* Login / Register styling */
+
+.login-form {
+    padding-top: 5%;
+    width: 100%;
+    max-width: 330px;
+    margin: 0 auto;
+}
+
+.login-container {
+    background-color: $red;
+    color: $light-red;
+    height: 100%;
+}
 
 /*------------------------Media Queries */
 

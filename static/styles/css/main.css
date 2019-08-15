@@ -60,6 +60,18 @@ body, html {
   width: 600px;
   height: 375px; }
 
+/* Login / Register styling */
+.login-form {
+  padding-top: 5%;
+  width: 100%;
+  max-width: 330px;
+  margin: 0 auto; }
+
+.login-container {
+  background-color: #BC0301;
+  color: #FF6E68;
+  height: 100%; }
+
 /*------------------------Media Queries */
 @media screen and (max-width: 767px) {
   .carousel-item.active {
