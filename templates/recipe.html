@@ -1,0 +1,42 @@
+{% extends 'includes/navbar.html' %} {% block content %}
+<main class="main">
+    <div class="container recipe-container text">
+        <div class="row">
+            <div class="col">
+                <h3>{{ recipe.recipe_name }}</h3>
+                <p>{{recipe.recipe_desc}}</p>
+                <h4>Ingredients</h4>
+                <!-- For Loop iterating over the array of ingredients -->
+                <ul>
+                    {% for i in recipe.ingredients %}
+                    <li>
+                        {{i}}
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="col">
+                <img class="recipe-img" src="{{recipe.img_url}}"></img>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <h4>Method</h4>
+                <!-- For Loop iterating over the array of the method.-->
+                <ol>
+                    {% for x in recipe.method %}
+
+                    <li>
+                        {{ x }}
+                    </li>
+                    {% endfor %}
+                </ol>
+            </div>
+        </div>
+    </div>
+</main>
+
+
+{% endblock %}
+<!-- Footer Content found in includes folder. -->
+{% block footer %} {% include 'includes/footer.html' %}{% endblock %}
