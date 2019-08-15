@@ -10,7 +10,8 @@ This website is aimed at a few different types of users:
 1. Users who want to be able to store an online copy of their own recipes.
 2. Users who are looking for inspiration from others on what and how to cook.
 3. Users looking to change and update their own recipes. Or to make changes to others recipes to compare flavours.
-    
+
+
 ### Features
 The main Features of this website will be CRUD utilities to be able to Create, Read, Update and Delete from an existing database of information, with subdatbases for storing Cooktime/Preptime and displaying this data with D3/Crossfilter to display this easily. 
 
@@ -34,7 +35,8 @@ During Development so far I've added return statements to ensure that the databa
 ## Credits
 
 ### Media
-
+All Flags were sourced from Wikipedia, please note I do not claim to own any copyright or ownership of these images.
+All images of food were sourced from pexels, acknowledgements will be made below. As above I do not own any copyright or ownership of these images.
 
 ### Acknowledgements
 
@@ -44,6 +46,11 @@ During Development so far I've added return statements to ensure that the databa
 ## Further Write up
 
 ### Deploying Locally
-
+1. Git Clone this application into an IDE or onto a workspace on your computer.
+2. Ensure python3 and pip are installed on your machine
+3. run ```$ pip install -r requirements.txt --no-index --find-links file:///tmp/packages```
+4. ensure you have a [mongodb](https://www.mongodb.com/) username and login. Create yourself a database and a cluster to start using the information on the application
+5. modify your .bashrc with your mongodb username + Password into VarEnvs for ```MONGO_DBNAME``` and ```MONGO_URI``` 
+6. You now have access to the database, the app should be able to run through any data you give it as long as the routing is correct.
 
 
