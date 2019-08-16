@@ -2,10 +2,12 @@ import pymongo
 import math
 import re
 import os 
-from flask import Flask, render_template, redirect, request, url_for, flash
+import bcrypt
+from flask import Flask, render_template, redirect, request, url_for, flash, session
 from flask_pymongo import PyMongo, pymongo
 from bson.objectid import ObjectId
 from forms import LoginForm, RegisterForm
+from flask_login import current_user, login_user, logout_user, login_required
 
 app = Flask(__name__)
 
@@ -37,12 +39,18 @@ def login():
     
 @app.route('/register.html', methods=['GET', 'POST'])
 def register():
-    rform = RegisterForm
-    if rform.validate_on_submit():
-        flash('Registration requested for user {}, remember_me{}'.format(
-            rform.username.data, rform.remember_me.data))
-    return render_template('register.html', title='Register', form=rform)
-
+    form = RegisterForm()
+    if request.method == 'POST':
+        users = mongo.db.users
+        existing_user = mongo.db.users.find_one({'username' : request.form['username']})
+        if existing_user is None:
+            hashpass = bcrypt.hashpw(request.form['password'].encode('utf-8'), bcrypt.gensalt())
+            users.insert({'username': request.form['username'], 'password': hashpass})
+            session['username'] = request.form['username']
+            flash('Your now logged in as {{username}}')
+        return index()
+    flash('Apologies, however that Username taken!')
+    return render_template('register.html', form=form)
 
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
