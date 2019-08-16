@@ -88,7 +88,7 @@ html {
 /* Recipe Content Styling */
 
 .recipe-container {
-    padding-top: 15px;
+    padding-top: 120px;
 }
 
 .recipe-img {
@@ -127,4 +127,18 @@ html {
     .card-container {
         padding-top: 12px;
     }
+
+    /* Recipe Styling Mobile */
+    .mobile-fix {
+        margin-bottom: -120%;
+    }
+    .recipe-container {
+        padding-top: 150px;
+    }
+    .recipe-img {
+        height: 30%;
+        width: auto;
+        padding-left: 25px;
+    }
+
 }

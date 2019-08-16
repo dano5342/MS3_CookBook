@@ -52,6 +52,3 @@ All images of food were sourced from pexels, acknowledgements will be made below
 4. ensure you have a [mongodb](https://www.mongodb.com/) username and login. Create yourself a database and a cluster to start using the information on the application
 5. modify your .bashrc with your mongodb username + Password into VarEnvs for ```MONGO_DBNAME``` and ```MONGO_URI``` 
 6. You now have access to the database, the app should be able to run through any data you give it as long as the routing is correct.
-
-
-test line
