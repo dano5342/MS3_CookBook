@@ -23,6 +23,10 @@ def index():
     return render_template("index.html", recipe=mongo.db.Recipes.find(),
                             cuisine=mongo.db.Cuisines.find())
                             
+@app.route('/add_recipe')
+def add_recipe():
+    return render_template('new_recipe')
+
 @app.route('/recipes/<recipe_id>')
 # Take the ObjectID and display the information for the recipe
 def recipe(recipe_id):
@@ -32,20 +36,25 @@ def recipe(recipe_id):
 @app.route('/login.html', methods=['GET', 'POST'])
 def login():
     form = LoginForm()
-    if form.validate_on_submit():
-        flash('Login requested for user {}, remember_me{}'.format(
-            form.username.data, form.remember_me.data))
-    return render_template('login.html', title='Sign In', form=form)
+    users = mongo.db.users
+    login_user = users.find_one({'name' : request.form['username']})
+    if login_user:
+        if bcrypt.hashpw(request.form['pass'].encode('utf-8'), 
+        login_user['password'].encode('utf-8')) == login_user['password'].encode('utf-8'):
+            session['username'] = request.form['username']
+            return redirect(url_for('index'))
+    flash ('Invalid username/password combination')
     
+
 @app.route('/register.html', methods=['GET', 'POST'])
 def register():
     form = RegisterForm()
     if request.method == 'POST':
-        users = mongo.db.users
+        users = mongo.db.users 
         existing_user = mongo.db.users.find_one({'username' : request.form['username']})
-        if existing_user is None:
+        if existing_user is None: #check user doesnt already exist
             hashpass = bcrypt.hashpw(request.form['password'].encode('utf-8'), bcrypt.gensalt())
-            users.insert({'username': request.form['username'], 'password': hashpass})
+            users.insert_one({'username': request.form['username'], 'password': hashpass})
             session['username'] = request.form['username']
             flash('Your now logged in as {{username}}')
         return index()
