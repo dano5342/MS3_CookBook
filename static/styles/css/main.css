@@ -7,7 +7,9 @@ body, html {
   font-family: "Lexend Deca", sans-serif; }
 
 .main {
-  background-color: #D4CAB1; }
+  background-color: #D4CAB1;
+  background-repeat: repeat;
+  padding-bottom: 25px; }
 
 .navbar {
   background-color: #BC0301 !important;
@@ -74,14 +76,11 @@ body, html {
 
 /*------------------------Media Queries */
 @media screen and (max-width: 767px) {
-  .carousel-item.active {
-    height: 30vh; }
+  .main {
+    margin-top: -25px; }
 
-  .carousel-indicators {
-    display: none; }
-
-  .buttons-wrapper {
-    display: none; }
+  .ind-content {
+    padding-top: 150px; }
 
   .card-container {
     padding-top: 12px; }

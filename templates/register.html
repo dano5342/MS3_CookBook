@@ -10,7 +10,6 @@
         <p>
             {{ form.password.label }}<br> {{ form.password(size=32, required=true, placeholder="Password") }}
         </p>
-        <p>{{ form.remember_me() }} {{ form.remember_me.label }}</p>
         <button class ="btn btn-primary" type="submit" name="action">Register</button>
         <h6><a href="{{url_for('index')}}">Go back</a></h6>
     </form>

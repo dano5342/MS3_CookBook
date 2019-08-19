@@ -15,6 +15,9 @@
                     <div class="nav-btn">
                         <a class="nav-item nav-link btn btn-primary" href="{{ url_for('new_recipe') }}"> New Recipe </a>
                     </div>
+                    <div class="nav-btn">
+                        <a href="{{url_for('logout')}}" class="nav-item navlink btn btn-primary">Logout</a>
+                    </div>
                     {% else %}
                     <a class="nav-item nav-link text" href="{{url_for('index')}}"> <i class="fas fa-home"></i>Home <span class="sr-only">(current)</span></a>
                     <div class="nav-btn">

@@ -7,15 +7,16 @@ from flask import Flask, render_template, redirect, request, url_for, flash, ses
 from flask_pymongo import PyMongo, pymongo
 from bson.objectid import ObjectId
 from forms import LoginForm, RegisterForm
-from flask_login import current_user, login_user, logout_user, login_required
+from flask_login import current_user, login_user, logout_user, login_required, LoginManager, login_manager
 
 app = Flask(__name__)
-
 #Env Vars
 app.config["MONGO_DBNAME"] = "CookBook"
 app.config["MONGO_URI"] = os.getenv("MONGO_URI", "mongodb://localhost")
 app.config["SECRET_KEY"] = os.getenv("SECRET_KEY")
 mongo = PyMongo(app)
+
+login_manager = LoginManager(app)
 
 @app.route('/')
 # Display recipes on the homepage
@@ -33,33 +34,51 @@ def recipe(recipe_id):
     the_recipe = mongo.db.Recipes.find_one({"_id": ObjectId(recipe_id)})
     return render_template('recipe.html', recipe = the_recipe, title = the_recipe['recipe_name'])
 
-@app.route('/login.html', methods=['GET', 'POST'])
+@app.route('/login.html', methods=['GET'])
 def login():
     form = LoginForm()
-    users = mongo.db.users
-    login_user = users.find_one({'name' : request.form['username']})
-    if login_user:
-        if bcrypt.hashpw(request.form['pass'].encode('utf-8'), 
-        login_user['password'].encode('utf-8')) == login_user['password'].encode('utf-8'):
-            session['username'] = request.form['username']
-            return redirect(url_for('index'))
-    flash ('Invalid username/password combination')
+    if 'logged in' in session:
+        return redirect(url_for('index.html'))
     
+    if form.validate_on_submit():
+        existing_user = mongo.db.users.find_one({'username': request.form['username']})
+        if existing_user:
+            password = request.form['password']
+            hashed = bcrypt.generate_password_hash(password.decode('utf-8'))
+            if bcrypt.check_password_hash(password, hashed):
+                session['username'] = request.form['username']
+                session['logged in'] = True
+                return redirect(url_for('index'))
+            flash('Incorrect Password.')
+        flash('')
+    return render_template('login.html', form=form)
 
 @app.route('/register.html', methods=['GET', 'POST'])
 def register():
     form = RegisterForm()
     if request.method == 'POST':
-        users = mongo.db.users 
-        existing_user = mongo.db.users.find_one({'username' : request.form['username']})
-        if existing_user is None: #check user doesnt already exist
+        users = mongo.db.users
+        existing_user = users.find_one({'name' : request.form['username']})
+
+        if existing_user is None:
             hashpass = bcrypt.hashpw(request.form['password'].encode('utf-8'), bcrypt.gensalt())
-            users.insert_one({'username': request.form['username'], 'password': hashpass})
+            users.insert({'name' : request.form['username'], 'password' : hashpass})
             session['username'] = request.form['username']
-            flash('Your now logged in as {{username}}')
-        return index()
-    flash('Apologies, however that Username taken!')
+            return redirect(url_for('index'))
+        
+        return 'That username already exists!'
+
     return render_template('register.html', form=form)
+
+
+@app.route('/new_recipe')
+def new_recipe():
+    return render_template('new_recipe.html')
+
+@app.route('/logout')
+def logout():
+    session.clear()
+    return redirect(url_for('index'))
 
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),

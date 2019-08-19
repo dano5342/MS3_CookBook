@@ -1,6 +1,6 @@
 {% extends 'base.html' %}{% block content %}
 <div class="container-fluid login-container">
-    <form class="login-form text-center" method="POST">
+    <form class="login-form text-center" method="GET">
         <img class="mb-4" src="{{url_for('static', filename='images/logo.png')}}" alt="CookBook Logo"> {{ form.hidden_tag() }}
         <h6 class="text">Not a member? <a href="{{url_for('register')}}">Sign up here</a></h6>
 

@@ -2,7 +2,8 @@
 
 <main role="main" class="main">
 
-    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+
+    <div id="myCarousel" class="carousel slide d-none d-lg-block" data-ride="carousel">
         <ol class="carousel-indicators d-none d-lg-block">
             <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
             <li data-target="#myCarousel" data-slide-to="1" class=""></li>
@@ -54,8 +55,6 @@
         </a>
         </div>
     </div>
-
-
     <div class="container ind-content">
         <h3>Our Recipes</h3>
         <div class="container">
@@ -80,4 +79,5 @@
         <h6>About</h6>
         <p>This site is a project for Code Institute, I hope that it can inspire users to cook more healthily and more often.</p>
     </div>
-    {% endblock %} {% block footer %} {% include "includes/footer.html" %} {% endblock %}
+</main>
+{% endblock %} {% block footer %} {% include "includes/footer.html" %} {% endblock %}

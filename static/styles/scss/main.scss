@@ -27,6 +27,8 @@ html {
 
 .main {
     background-color: $main-bg;
+    background-repeat: repeat;
+    padding-bottom: 25px;
 }
 
 .navbar {
@@ -114,16 +116,12 @@ html {
 /*------------------------Media Queries */
 
 @media screen and (max-width: 767px) {
-    .carousel-item.active {
-        height: 30vh;
+    .main {
+        margin-top: -25px;
     }
-    .carousel-indicators {
-        display: none;
+    .ind-content {
+        padding-top: 150px;
     }
-    .buttons-wrapper {
-        display: none;
-    }
-
     .card-container {
         padding-top: 12px;
     }
