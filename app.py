@@ -34,26 +34,23 @@ def recipe(recipe_id):
     the_recipe = mongo.db.Recipes.find_one({"_id": ObjectId(recipe_id)})
     return render_template('recipe.html', recipe = the_recipe, title = the_recipe['recipe_name'])
 
-@app.route('/login.html', methods=['GET'])
+
+@app.route('/login', methods=['GET', 'POST'])
 def login():
     form = LoginForm()
     if 'logged in' in session:
         return redirect(url_for('index.html'))
-    
-    if form.validate_on_submit():
-        existing_user = mongo.db.users.find_one({'username': request.form['username']})
-        if existing_user:
-            password = request.form['password']
-            hashed = bcrypt.generate_password_hash(password.decode('utf-8'))
-            if bcrypt.check_password_hash(password, hashed):
-                session['username'] = request.form['username']
-                session['logged in'] = True
-                return redirect(url_for('index'))
-            flash('Incorrect Password.')
-        flash('')
+    if request.method == "POST" and form.validate:
+        existing_user = mongo.db.users.find_one({'name': request.form['username']})
+        if bcrypt.hashpw(request.form['password'].encode('utf-8'), existing_user['password']):
+            session['username'] = request.form['username']
+            session['logged in'] = True
+            return redirect(url_for('index'))
+        flash('Incorrect Password.')
     return render_template('login.html', form=form)
 
-@app.route('/register.html', methods=['GET', 'POST'])
+
+@app.route('/register', methods=['GET', 'POST'])
 def register():
     form = RegisterForm()
     if request.method == 'POST':
@@ -64,6 +61,7 @@ def register():
             hashpass = bcrypt.hashpw(request.form['password'].encode('utf-8'), bcrypt.gensalt())
             users.insert({'name' : request.form['username'], 'password' : hashpass})
             session['username'] = request.form['username']
+            flash('User creation successful!')
             return redirect(url_for('index'))
         
         return 'That username already exists!'
