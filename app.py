@@ -37,11 +37,14 @@ def addrecipe():
     if 'username' not in session:
         flash('Not possible for none members! Please create an account.')
         return redirect(url_for('register'))
-    form = RecipeForm
-    
+        
+
+    form = RecipeForm()
+    user = mongo.db.users.find_one({"name": session['username'].title()})
+
     if request.method == 'POST' and form.validate_on_submit():
         recipe = mongo.db.Recipes
-        recipe.insert({'recipe_name': request.form['recipe_name'], 
+        recipe.insert_one({'recipe_name': request.form['recipe_name'], 
                     'recipe_type': request.form['recipe_type'], 
                     'recipe_desc': request.form['recipe_desc'],
                     'serving': request.form['serving'],

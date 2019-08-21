@@ -14,13 +14,12 @@ class RegisterForm(FlaskForm):
     submit = SubmitField('Register')
     
 class RecipeForm(FlaskForm):
-    recipe_name = StringField('recipe_name', validators=[DataRequired()])
-    recipe_type = StringField('Recipe Type (Thai, Indian)', validators=[DataRequired()])
-    recipe_desc = StringField('Description', validators=[DataRequired()])
-    serving = StringField('Serving Size', validators=[DataRequired()])
-    prep_time = StringField('Preparation Time', validators=[DataRequired()])
-    cook_time = StringField('Cooking Time', validators=[DataRequired()])
-    ingredients = FieldList(StringField('Ingredients', validators=[DataRequired()],
-                                                    min_entries=1, max_entries=15))
-    method = FieldList(StringField('Method', validators=[DataRequired], min_entries=1, max_entries=10))
-    img_url = StringField('Got a photo link? Paste it here!', validators=[DataRequired])
+    recipe_name = StringField('Recipe Name:')
+    recipe_type = StringField('Recipe Type:')
+    recipe_desc = StringField('Description:')
+    serving = StringField('Serving Size:')
+    prep_time = StringField('Preparation Time:')
+    cook_time = StringField('Cooking Time:')
+    ingredients = FieldList(StringField('Ingredients:', min_entries=1, max_entries=15))
+    method = FieldList(StringField('Method:', min_entries=1, max_entries=10))
+    img_url = StringField('Got a photo link? Paste it here!:')
