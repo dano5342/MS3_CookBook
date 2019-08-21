@@ -10,21 +10,30 @@
   </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
-                    {% if 'username' in session %} 
-                    <a class="nav-item nav-link text" href="{{url_for('index')}}"> <i class="fas fa-home"></i>Home <span class="sr-only">(current)</span></a>
+                    {% if 'username' in session %}
                     <div class="nav-btn">
-                        <a class="nav-item nav-link btn btn-primary" href="{{ url_for('new_recipe') }}"> New Recipe </a>
+                        <a class="nav-item nav-link text btn btn-primary" href="{{url_for('index')}}"> <i class="fas fa-home"></i>  Home <span class="sr-only">(current)</span></a>
                     </div>
                     <div class="nav-btn">
-                        <a href="{{url_for('logout')}}" class="nav-item navlink btn btn-primary">Logout</a>
-                    </div>
-                    {% else %}
-                    <a class="nav-item nav-link text" href="{{url_for('index')}}"> <i class="fas fa-home"></i>Home <span class="sr-only">(current)</span></a>
-                    <div class="nav-btn">
-                        <a class="nav-item nav-link btn btn-primary" href="{{ url_for('login') }}"> Login </a>
+                        <a class="nav-item nav-link btn btn-primary" href="{{ url_for('addrecipe') }}"><i class="fas fa-list"></i> New Recipe </a>
                     </div>
                     <div class="nav-btn">
-                        <a class="nav-item nav-link btn btn-primary" href="{{ url_for('register') }}"> Register </a>
+                        <a href="{{url_for('logout')}}" class="nav-item nav-link btn btn-primary"><i class="fas fa-sign-out-alt"></i>  Logout</a>
+                    </div>
+                    <div class="d-flex flex-row-reverse logged">
+                        <h5>You're logged in as: {{ session.username}}</h5>
+                    </div>
+                    {% with messages = get_flashed_messages() %} {% if messages %} {% for message in messages%}
+                    <div class="nav-btn">{{ message }}</div>
+                    {% endfor %} {% endif %} {% endwith %} {% else %}
+                    <div class="nav-btn">
+                        <a class="nav-item nav-link text btn btn-primary" href="{{url_for('index')}}"> <i class="fas fa-home"></i> Home <span class="sr-only">(current)</span></a>
+                    </div>
+                    <div class="nav-btn">
+                        <a class="nav-item nav-link btn btn-primary" href="{{ url_for('login') }}"><i class="fas fa-sign-in-alt"></i> Login </a>
+                    </div>
+                    <div class="nav-btn">
+                        <a class="nav-item nav-link btn btn-primary" href="{{ url_for('register') }}"><i class="fas fa-user-plus"></i> Register </a>
                     </div>
                     {% endif %}
                 </div>

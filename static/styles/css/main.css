@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css?family=Lexend+Deca|Libre+Caslon+Display&display=swap");
 /* Main Content Style */
-body, html {
+body,
+html {
   margin: 0;
   padding: 0;
   height: 100%;
@@ -48,6 +49,11 @@ body, html {
   background-color: #2A222D;
   border-color: #2A222D;
   color: #FF6E68; }
+
+.logged {
+  color: #FF6E68;
+  padding-left: 5px;
+  padding-top: 8px; }
 
 .btn-primary:hover {
   background-color: #FF6E68;

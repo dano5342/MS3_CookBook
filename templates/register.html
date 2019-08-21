@@ -7,10 +7,13 @@
         <p>
             {{ form.username.label }}<br> {{ form.username(size=32, required=true, placeholder="JoeBloggs123") }}
         </p>
+        {% with messages = get_flashed_messages() %} {% if messages %} {% for message in messages%}
+        <p>{{ message }}</p>
+        {% endfor %} {% endif %} {% endwith %}
         <p>
             {{ form.password.label }}<br> {{ form.password(size=32, required=true, placeholder="Password") }}
         </p>
-        <button class ="btn btn-primary" type="submit" name="action">Register</button>
+        <button class="btn btn-primary" type="submit" name="action">Register</button>
         <h6><a href="{{url_for('index')}}">Go back</a></h6>
     </form>
 </div>
