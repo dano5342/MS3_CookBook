@@ -12,7 +12,7 @@
 $default-text: #2A222D;
 $main-bg: #D4CAB1;
 $red: #BC0301;
-$light-red: #FF6E68;
+$pink: #FF6E68;
 $footer: #2A222D;
 $yellow: #ECBB5C;
 /* Main Content Style */
@@ -40,7 +40,7 @@ html {
 }
 
 .navbar-light .navbar-nav .nav-link {
-    color: $light-red;
+    color: $pink;
 }
 
 .nav-btn {
@@ -53,9 +53,26 @@ html {
 }
 
 .ind-content {
-    padding-top: 20px;
+    padding-top: 120px;
 }
 
+.card-container {
+    padding-top: 15px;
+}
+
+.card {
+    border-color: $yellow;
+    transition: box-shadow .3s;
+}
+
+.card:hover {
+    box-shadow: 0 0 14px rgba(33, 33, 33, .2);
+
+}
+
+.card-body {
+    background: $pink;
+}
 
 .card-img-top {
     width: 100%;
@@ -78,18 +95,18 @@ html {
 .btn-primary {
     background-color: $default-text;
     border-color: $default-text;
-    color: $light-red;
+    color: $pink;
 }
 
 .logged {
-    color: $light-red;
+    color: $pink;
     padding-left: 5px;
     padding-top: 8px;
 }
 
 .btn-primary:hover {
-    background-color: $light-red;
-    border-color: $light-red;
+    background-color: $pink;
+    border-color: $pink;
     color: $red;
 }
 
@@ -104,6 +121,11 @@ html {
     height: 375px;
 }
 
+.unordered {
+    list-style-type: none;
+    padding-top: 15px;
+}
+
 /* Login / Register styling */
 
 .login-form {
@@ -115,21 +137,48 @@ html {
 
 .login-container {
     background-color: $red;
-    color: $light-red;
+    color: $pink;
     height: 100%;
 }
 
 /*-----------------------Add/Edit recipe styles */
 
 .recipe-container-add {
+    padding-top: 15px;
     background-color: $red;
-    color: $light-red;
+    color: $pink;
     height: 100%;
+}
+
+textarea, input {
+    background-color: $main-bg;
+    border-color: $main-bg;
+}
+
+#method {
+    width: 80%;
+}
+
+#ingredients {
+    width: 80%;
+}
+
+#recipe_desc {
+    width: 80%;
 }
 
 /*------------------------Media Queries */
 
 @media screen and (max-width: 767px) {
+    .navbar-nav {
+        padding-top: 10px;
+    }
+    .navbar-light .navbar-nav .nav-link {
+        margin-top: 5px;
+        color: $pink;
+        width: 50%;
+    }
+
     .main {
         margin-top: -25px;
     }

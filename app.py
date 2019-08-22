@@ -50,7 +50,7 @@ def addrecipe():
                             'prep_time': request.form['prep_time'],
                             'cook_time': request.form['cook_time'],
                             'ingredients': request.form['ingredients'].split(","),
-                            'method': request.form['method'].split(","),
+                            'method': request.form['method'].split("."),
                             'img_url': request.form['img_url']})
         flash('Recipe successfully added.')
         return redirect(url_for('index'))

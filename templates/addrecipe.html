@@ -1,5 +1,5 @@
 {% extends 'base.html' %} {% block content %}
-<div class="container-fluid recipe-container">
+<div class="container-fluid recipe-container-add">
     <div class="row">
         <div class="col">
             <h1>Add a recipe here:</h1>
@@ -27,20 +27,28 @@
         </div>
         <div class="row">
             <div class="col">
-                <p>{{ form.hidden_tag() }} {{form.recipe_desc.label}} {{form.recipe_desc(placeholder='A creamy Italian favourite, layers of tomato and cheesy sauces with plates of spaghetti inbetween. Great for a few days!')}}</p>
-            </div>
-            <div class="col">
                 <p>{{ form.hidden_tag() }} {{form.img_url.label}} {{form.img_url(placeholder='Paste it here!')}}</p>
             </div>
         </div>
         <div class="row">
             <div class="col">
-                <p>{{ form.hidden_tag() }} {{form.method.label}} {{form.method}}</p>
-            </div>
-            <div class="col">
-                <p>{{ form.hidden_tag() }}{{form.ingredients.label}} {{form.ingredients}}</p>
+                <p>{{ form.hidden_tag() }} {{form.recipe_desc.label}} {{form.recipe_desc(placeholder='A creamy Italian favourite, layers of tomato and cheesy sauces with plates of spaghetti inbetween. Great for a few days!')}}</p>
             </div>
         </div>
+        <div class="row">
+            <div class="col">
+                <h6>Please seperate each ingredient with a Comma</h6>
+                <p>{{ form.hidden_tag() }}{{form.ingredients.label}} {{form.ingredients(placeholder='1 cup beef stock, 1 large onion, 1 can pasatta, 8 lasagna plates, 4 fresh tomatoes, 400g beef mince, 2 cloves garlic, 2 tbsp olive oil, 1 pot cream cheese')}}</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <h6>Please only use a full stop(period) at the end of each step, However please leave your last step without one.</h6>
+                <p>{{ form.hidden_tag() }} {{form.method.label}} {{form.method(placeholder='Heat oil in a pan and brown mince. Whilst mince is browning chop onions, garlic and tomatoes and add when finished. Add pasatta and broth into the pan. Simmer for ten minutes then add to a lasagna form a layer of sauce, then lasagna, repeat until no plates left. Top with creamcheese and bake for 45mins')}}</p>
+            </div>
+        </div>
+
+
         <button class="btn btn-primary" type="submit" name="action">Add</button>
         <h6><a href="{{url_for('index')}}">Go back</a></h6>
     </form>

@@ -28,7 +28,20 @@ html {
   margin: 0 auto; }
 
 .ind-content {
-  padding-top: 20px; }
+  padding-top: 120px; }
+
+.card-container {
+  padding-top: 15px; }
+
+.card {
+  border-color: #ECBB5C;
+  transition: box-shadow .3s; }
+
+.card:hover {
+  box-shadow: 0 0 14px rgba(33, 33, 33, 0.2); }
+
+.card-body {
+  background: #FF6E68; }
 
 .card-img-top {
   width: 100%;
@@ -68,6 +81,10 @@ html {
   width: 600px;
   height: 375px; }
 
+.unordered {
+  list-style-type: none;
+  padding-top: 15px; }
+
 /* Login / Register styling */
 .login-form {
   padding-top: 5%;
@@ -82,12 +99,34 @@ html {
 
 /*-----------------------Add/Edit recipe styles */
 .recipe-container-add {
+  padding-top: 15px;
   background-color: #BC0301;
   color: #FF6E68;
   height: 100%; }
 
+textarea, input {
+  background-color: #D4CAB1;
+  border-color: #D4CAB1; }
+
+#method {
+  width: 80%; }
+
+#ingredients {
+  width: 80%; }
+
+#recipe_desc {
+  width: 80%; }
+
 /*------------------------Media Queries */
 @media screen and (max-width: 767px) {
+  .navbar-nav {
+    padding-top: 10px; }
+
+  .navbar-light .navbar-nav .nav-link {
+    margin-top: 5px;
+    color: #FF6E68;
+    width: 50%; }
+
   .main {
     margin-top: -25px; }
 

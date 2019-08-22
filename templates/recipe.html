@@ -17,7 +17,16 @@
             </div>
             <div class="col mobile-fix">
                 <img class="recipe-img" src="{{recipe.img_url}}"></img>
+                <div class="col text-center">
+                    <ul class="unordered">
+                        <li>Serving Size {{ recipe.serving }} <i class="fas fa-utensils"></i> </li>
+                        <li> Prep Time {{recipe.prep_time}} <i class="fas fa-tasks"></i> </li>
+                        <li>Cooking Time {{recipe.cook_time}} <i class="fas fa-clock"></i> </li>
+                    </ul>
+                </div>
+
             </div>
+
         </div>
         <div class="row">
             <div class="col">
