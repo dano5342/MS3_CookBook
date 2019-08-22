@@ -31,6 +31,35 @@ def recipe(recipe_id):
     the_recipe = mongo.db.Recipes.find_one({"_id": ObjectId(recipe_id)})
     return render_template('recipe.html', recipe = the_recipe, title = the_recipe['recipe_name'])
 
+@app.route('/editrecipe/<recipe_id>', methods=['GET', 'POST'])
+def editrecipe(recipe_id):
+    if 'username' not in session:
+        flash('Not possible for none members! Please create an account.')
+        return redirect(url_for('register'))
+        
+    form = RecipeForm()
+    user = mongo.db.users.find_one({'name': session['username'].title()})
+    getrep = mongo.db.Recipes.find_one({'_id': ObjectId(recipe_id)})
+    if request.method == 'GET':
+        form = RecipeForm(data=getrep)
+        return render_template('edit_recipe.html', recipe=getrep,
+                                form=form, title="Edit Recipe")
+    if form.validate_on_submit:
+        rec = mongo.db.Recipes
+        rec.update_one({'_id': ObjectId(recipe_id),},{
+            '$set':{'recipe_name': request.form['recipe_name'],
+                    'recipe_type': request.form['recipe_type'],
+                    'recipe_desc': request.form['recipe_desc'],
+                    'serving': request.form['serving'],
+                    'prep_time': request.form['prep_time'],
+                    'cook_time': request.form['cook_time'],
+                    'ingredients': request.form['ingredients'].split(","),
+                    'method': request.form['method'].split("."),
+                    'img_url': request.form['img_url']
+            }})
+        flash('Recipe Succesfully Updated.')
+        return redirect(url_for('recipe', recipe_id=recipe_id))
+    return render_template(url_for('recipe', recipe_id=recipe_id))
 
 @app.route('/addrecipe', methods=['GET','POST'])
 def addrecipe():

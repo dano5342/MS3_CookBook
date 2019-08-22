@@ -24,7 +24,6 @@
                         <li>Cooking Time {{recipe.cook_time}} <i class="fas fa-clock"></i> </li>
                     </ul>
                 </div>
-
             </div>
 
         </div>
@@ -45,7 +44,7 @@
         {% if 'username' in session %}
         <div class="row">
             <div class="col">
-                <a href="" class="btn nav-btn btn-primary"> Edit Recipe</a>
+                <a href="{{url_for('editrecipe', recipe_id=recipe._id)}}" class="btn nav-btn btn-primary"> Edit Recipe</a>
             </div>
             <div class="col">
                 <a href="" class="btn nav-btn btn-primary"> Delete Recipe</a>
