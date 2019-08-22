@@ -119,6 +119,14 @@ html {
     height: 100%;
 }
 
+/*-----------------------Add/Edit recipe styles */
+
+.recipe-container-add {
+    background-color: $red;
+    color: $light-red;
+    height: 100%;
+}
+
 /*------------------------Media Queries */
 
 @media screen and (max-width: 767px) {

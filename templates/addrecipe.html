@@ -1,8 +1,11 @@
 {% extends 'base.html' %} {% block content %}
-<div class="container recipe-container">
-    <h1>Add a recipe here:</h1>
-
-    <form class="recipe-form text-center" method="POST">
+<div class="container-fluid recipe-container">
+    <div class="row">
+        <div class="col">
+            <h1>Add a recipe here:</h1>
+        </div>
+    </div>
+    <form class="recipe-form-add text-center" method="POST">
         <div class="row">
             <div class="col">
                 <p>{{ form.hidden_tag() }} {{form.recipe_name.label}} {{ form.recipe_name(placeholder='Lasanga') }}</p>
@@ -22,6 +25,24 @@
                 <p>{{ form.hidden_tag() }} {{form.cook_time.label}} {{form.cook_time(placeholder='40')}}</p>
             </div>
         </div>
+        <div class="row">
+            <div class="col">
+                <p>{{ form.hidden_tag() }} {{form.recipe_desc.label}} {{form.recipe_desc(placeholder='A creamy Italian favourite, layers of tomato and cheesy sauces with plates of spaghetti inbetween. Great for a few days!')}}</p>
+            </div>
+            <div class="col">
+                <p>{{ form.hidden_tag() }} {{form.img_url.label}} {{form.img_url(placeholder='Paste it here!')}}</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <p>{{ form.hidden_tag() }} {{form.method.label}} {{form.method}}</p>
+            </div>
+            <div class="col">
+                <p>{{ form.hidden_tag() }}{{form.ingredients.label}} {{form.ingredients}}</p>
+            </div>
+        </div>
+        <button class="btn btn-primary" type="submit" name="action">Add</button>
+        <h6><a href="{{url_for('index')}}">Go back</a></h6>
     </form>
 
 </div>

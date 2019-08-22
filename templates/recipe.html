@@ -33,6 +33,16 @@
                 </ol>
             </div>
         </div>
+        {% if 'username' in session %}
+        <div class="row">
+            <div class="col">
+                <a href="" class="btn nav-btn btn-primary"> Edit Recipe</a>
+            </div>
+            <div class="col">
+                <a href="" class="btn nav-btn btn-primary"> Delete Recipe</a>
+            </div>
+        </div>
+        {% endif %}
     </div>
 </main>
 

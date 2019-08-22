@@ -32,30 +32,30 @@ def recipe(recipe_id):
     return render_template('recipe.html', recipe = the_recipe, title = the_recipe['recipe_name'])
 
 
-@app.route('/addrecipe')
+@app.route('/addrecipe', methods=['GET','POST'])
 def addrecipe():
     if 'username' not in session:
         flash('Not possible for none members! Please create an account.')
         return redirect(url_for('register'))
-        
-
+    
     form = RecipeForm()
-    user = mongo.db.users.find_one({"name": session['username'].title()})
-
+    user = mongo.db.users.find_one({'name': session['username'].title()})
+    
     if request.method == 'POST' and form.validate_on_submit():
         recipe = mongo.db.Recipes
-        recipe.insert_one({'recipe_name': request.form['recipe_name'], 
-                    'recipe_type': request.form['recipe_type'], 
-                    'recipe_desc': request.form['recipe_desc'],
-                    'serving': request.form['serving'],
-                    'prep_time': request.form['prep_time'],
-                    'cook_time': request.form['cook_time'],
-                    'ingredients': request.form['ingredients'],
-                    'method': request.form['method'],
-                    'img_url': request.form['image']})
-        flash('Recipe success!')
+        recipe.insert_one({'recipe_name': request.form['recipe_name'],
+                            'recipe_type': request.form['recipe_type'],
+                            'recipe_desc': request.form['recipe_desc'],
+                            'serving': request.form['serving'],
+                            'prep_time': request.form['prep_time'],
+                            'cook_time': request.form['cook_time'],
+                            'ingredients': request.form['ingredients'].split(","),
+                            'method': request.form['method'].split(","),
+                            'img_url': request.form['img_url']})
+        flash('Recipe successfully added.')
         return redirect(url_for('index'))
     return render_template('addrecipe.html', form=form)
+
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -69,7 +69,6 @@ def login():
             session['logged in'] = True
             return redirect(url_for('index'))
         flash('Incorrect Password.')
-        error = 'Invalid Credentials'
     return render_template('login.html', form=form)
 
 

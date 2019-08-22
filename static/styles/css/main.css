@@ -80,6 +80,12 @@ html {
   color: #FF6E68;
   height: 100%; }
 
+/*-----------------------Add/Edit recipe styles */
+.recipe-container-add {
+  background-color: #BC0301;
+  color: #FF6E68;
+  height: 100%; }
+
 /*------------------------Media Queries */
 @media screen and (max-width: 767px) {
   .main {
