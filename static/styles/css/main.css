@@ -16,7 +16,8 @@ html {
   background-color: #BC0301 !important;
   position: fixed;
   z-index: 999;
-  width: 100%; }
+  width: 100%;
+  box-shadow: 0 4px 2px 1px rgba(0, 0, 0, 0.2); }
 
 .navbar-light .navbar-nav .nav-link {
   color: #FF6E68; }
@@ -38,7 +39,7 @@ html {
   transition: box-shadow .3s; }
 
 .card:hover {
-  box-shadow: 0 0 14px rgba(33, 33, 33, 0.2); }
+  box-shadow: 2px 4px 14px rgba(33, 33, 33, 0.2); }
 
 .card-body {
   background: #FF6E68; }
@@ -52,8 +53,14 @@ html {
 .footer {
   padding-top: 20px;
   padding-bottom: 20px;
-  background-color: #2A222D;
-  color: #D4CAB1; }
+  background-color: #2A222D; }
+
+.github {
+  color: #FF6E68;
+  text-decoration: none; }
+
+.github:hover {
+  color: #BC0301; }
 
 .about-content {
   padding-top: 25px; }
@@ -85,6 +92,10 @@ html {
   list-style-type: none;
   padding-top: 15px; }
 
+.method {
+  margin: 4px;
+  padding: 2px; }
+
 /* Login / Register styling */
 .login-form {
   padding-top: 5%;
@@ -104,7 +115,8 @@ html {
   color: #FF6E68;
   height: 100%; }
 
-textarea, input {
+textarea,
+input {
   background-color: #D4CAB1;
   border-color: #D4CAB1; }
 

@@ -6,7 +6,7 @@ import bcrypt
 from flask import Flask, render_template, redirect, request, url_for, flash, session
 from flask_pymongo import PyMongo, pymongo
 from bson.objectid import ObjectId
-from forms import LoginForm, RegisterForm, RecipeForm
+from forms import LoginForm, RegisterForm, RecipeForm, DeleteForm
 from flask_login import current_user, login_user, logout_user, login_required, LoginManager, login_manager
 
 app = Flask(__name__)
@@ -24,21 +24,25 @@ def index():
     return render_template("index.html", recipe=mongo.db.Recipes.find(),
                             cuisine=mongo.db.Cuisines.find())
                             
-
+##### Recipe Functions, View, Edit, Create, Delete.
 @app.route('/recipes/<recipe_id>')
 # Take the ObjectID and display the information for the recipe
 def recipe(recipe_id):
     the_recipe = mongo.db.Recipes.find_one({"_id": ObjectId(recipe_id)})
     return render_template('recipe.html', recipe = the_recipe, title = the_recipe['recipe_name'])
+"""
+@app.route('/deleterecipe/<recipe_id>', methods=['GET', 'POST'])
+def deleterecipe(recipe_id):
+    
+"""
 
 @app.route('/editrecipe/<recipe_id>', methods=['GET', 'POST'])
 def editrecipe(recipe_id):
     if 'username' not in session:
-        flash('Not possible for none members! Please create an account.')
+        flash('Not possible for non-members! Please create an account.')
         return redirect(url_for('register'))
         
     form = RecipeForm()
-    user = mongo.db.users.find_one({'name': session['username'].title()})
     getrep = mongo.db.Recipes.find_one({'_id': ObjectId(recipe_id)})
     if request.method == 'GET':
         form = RecipeForm(data=getrep)
@@ -64,7 +68,7 @@ def editrecipe(recipe_id):
 @app.route('/addrecipe', methods=['GET','POST'])
 def addrecipe():
     if 'username' not in session:
-        flash('Not possible for none members! Please create an account.')
+        flash('Not possible for non-members! Please create an account.')
         return redirect(url_for('register'))
     
     form = RecipeForm()
@@ -78,14 +82,14 @@ def addrecipe():
                             'serving': request.form['serving'],
                             'prep_time': request.form['prep_time'],
                             'cook_time': request.form['cook_time'],
-                            'ingredients': request.form['ingredients'].split(","),
-                            'method': request.form['method'].split("."),
+                            'ingredients': request.form['ingredients'].split(",,"),
+                            'method': request.form['method'].split(".."),
                             'img_url': request.form['img_url']})
         flash('Recipe successfully added.')
         return redirect(url_for('index'))
     return render_template('addrecipe.html', form=form)
 
-
+########### Functions and Routing for Login, Registration and Logging out.
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     form = LoginForm()

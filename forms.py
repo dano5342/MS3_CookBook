@@ -1,6 +1,6 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, BooleanField, SubmitField, TextAreaField, IntegerField, FieldList, FormField
-from wtforms.validators import DataRequired, Length, Optional
+from wtforms.validators import DataRequired, Length, Optional, InputRequired
 
 class LoginForm(FlaskForm):
     username = StringField('Username', validators=[DataRequired(), Length(min=5, max=16)])
@@ -21,7 +21,14 @@ class RecipeForm(FlaskForm):
     serving = IntegerField('Serving Size:')
     prep_time = IntegerField('Preparation Time:')
     cook_time = IntegerField('Cooking Time:')
-    ingredients = TextAreaField('Ingredients:')
+    ingredients = TextAreaField('Ingredients:') 
     method = TextAreaField('Method:')
     img_url = StringField('Got a photo link?:')
     submit = SubmitField('Add Recipe')
+    
+
+class DeleteForm(FlaskForm):
+    delete = StringField('Please enter the recipe name you wish to delete:', validators=[InputRequired('DELETE')])
+    submit = SubmitField('Delete Recipe. Warning, this is irreversible.')
+
+            

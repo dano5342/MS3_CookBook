@@ -3,4 +3,5 @@
 /.sass-cache*
 */__pycache__
 /__pycache__*
-/.~c9_invoke_MtQDe.py
+/.~c9_invoke_*
+*/.~c9_invoke

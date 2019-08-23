@@ -1,0 +1,22 @@
+{% extends 'base.html' %} {% block content %}
+<div class="container-fluid recipe-container-add">
+    <div class="row">
+        <div class="col">
+            <h1>Add a recipe here:</h1>
+        </div>
+    </div>
+    <form class="recipe-form-add text-center" method="POST">
+        <div class="row">
+            <div class="col">
+                <p>{{ form.hidden_tag() }} {{form.delete.label}} {{ form.delete }}</p>
+            </div>
+        </div>
+        <div class="row">
+            <button class="btn btn-primary" type="submit" name="action">Add</button>
+            <h6><a href="{{url_for('index')}}">Go back</a></h6>
+        </div>
+    </form>
+
+</div>
+
+{%endblock%}
