@@ -21,9 +21,8 @@ login_manager = LoginManager(app)
 @app.route('/')
 # Display recipes on the homepage
 def index():
-    return render_template("index.html", recipe=mongo.db.Recipes.find(),
-                            cuisine=mongo.db.Cuisines.find())
-                            
+    return render_template("index.html", recipe=mongo.db.Recipes.find())
+
 ##### Recipe Functions, View, Edit, Create, Delete.
 @app.route('/recipes/<recipe_id>')
 # Take the ObjectID and display the information for the recipe
@@ -57,8 +56,8 @@ def editrecipe(recipe_id):
                     'serving': request.form['serving'],
                     'prep_time': request.form['prep_time'],
                     'cook_time': request.form['cook_time'],
-                    'ingredients': request.form['ingredients'].split(","),
-                    'method': request.form['method'].split("."),
+                    'ingredients': request.form['ingredients'].split(",,"),
+                    'method': request.form['method'].split(".."),
                     'img_url': request.form['img_url']
             }})
         flash('Recipe Succesfully Updated.')
@@ -72,7 +71,6 @@ def addrecipe():
         return redirect(url_for('register'))
     
     form = RecipeForm()
-    user = mongo.db.users.find_one({'name': session['username'].title()})
     
     if request.method == 'POST' and form.validate_on_submit():
         recipe = mongo.db.Recipes
