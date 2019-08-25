@@ -29,6 +29,7 @@ html {
     background-color: $main-bg;
     background-repeat: repeat;
     padding-bottom: 25px;
+    min-height: 100%;
 }
 
 .navbar {
@@ -36,7 +37,7 @@ html {
     position: fixed;
     z-index: 999;
     width: 100%;
-    box-shadow: 0 4px 2px 1px rgba(0,0,0,.2);
+    box-shadow: 0 4px 2px 1px rgba(0, 0, 0, .2);
 
 }
 
@@ -88,7 +89,7 @@ html {
     background-color: $default-text;
 }
 
-.github{
+.github {
     color: $pink;
     text-decoration: none;
 }
@@ -107,6 +108,12 @@ html {
     color: $pink;
 }
 
+.btn-secondary {
+    background-color: $pink;
+    border-color: $pink;
+    color: $footer;
+}
+
 .logged {
     color: $pink;
     padding-left: 5px;
@@ -117,6 +124,12 @@ html {
     background-color: $pink;
     border-color: $pink;
     color: $red;
+}
+
+.btn-secondary:hover {
+    background-color: $main-bg;
+    border-color: $main-bg;
+    color: $footer;
 }
 
 /* Recipe Content Styling */
@@ -159,7 +172,7 @@ html {
 
 .recipe-container-add {
     padding-top: 15px;
-    background-color: $red;
+    background-color: $footer;
     color: $pink;
     height: 100%;
 }
@@ -193,7 +206,11 @@ input {
         color: $pink;
         width: 50%;
     }
-
+    .recipe-container-add {
+        padding-top: 15px;
+        background-color: $footer;
+        color: #FF6E68;
+    }
     .main {
         margin-top: -25px;
     }
@@ -202,12 +219,10 @@ input {
     }
     .card-container {
         padding-top: 12px;
+        margin-left: 30px;
     }
 
     /* Recipe Styling Mobile */
-    .mobile-fix {
-        margin-bottom: -120%;
-    }
     .recipe-container {
         padding-top: 150px;
     }

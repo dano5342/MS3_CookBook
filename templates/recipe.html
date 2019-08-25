@@ -2,7 +2,7 @@
 <main class="main">
     <div class="container recipe-container text">
         <div class="row">
-            <div class="col">
+            <div class="col-md">
                 <h3>{{ recipe.recipe_name }}</h3>
                 <p>{{recipe.recipe_desc}}</p>
                 <h4>Ingredients</h4>
@@ -15,8 +15,8 @@
                     {% endfor %}
                 </ul>
             </div>
-            <div class="col mobile-fix">
-                <img class="recipe-img" src="{{recipe.img_url}}"></img>
+            <div class="col-sm mobile-fix">
+                <img class=" img-fluid mx-auto" src="{{recipe.img_url}}"></img>
                 <div class="col text-center">
                     <ul class="unordered">
                         <li>Serving Size {{ recipe.serving }} <i class="fas fa-utensils"></i> </li>
@@ -25,8 +25,8 @@
                     </ul>
                 </div>
             </div>
-
         </div>
+
         <div class="row">
             <div class="col">
                 <h4>Method</h4>

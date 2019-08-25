@@ -70,6 +70,11 @@ html {
   border-color: #2A222D;
   color: #FF6E68; }
 
+.btn-secondary {
+  background-color: #FF6E68;
+  border-color: #FF6E68;
+  color: #2A222D; }
+
 .logged {
   color: #FF6E68;
   padding-left: 5px;
@@ -79,6 +84,11 @@ html {
   background-color: #FF6E68;
   border-color: #FF6E68;
   color: #BC0301; }
+
+.btn-secondary:hover {
+  background-color: #D4CAB1;
+  border-color: #D4CAB1;
+  color: #2A222D; }
 
 /* Recipe Content Styling */
 .recipe-container {
@@ -111,7 +121,7 @@ html {
 /*-----------------------Add/Edit recipe styles */
 .recipe-container-add {
   padding-top: 15px;
-  background-color: #BC0301;
+  background-color: #2A222D;
   color: #FF6E68;
   height: 100%; }
 
@@ -139,6 +149,11 @@ input {
     color: #FF6E68;
     width: 50%; }
 
+  .recipe-container-add {
+    padding-top: 15px;
+    background-color: #2A222D;
+    color: #FF6E68; }
+
   .main {
     margin-top: -25px; }
 
@@ -146,12 +161,10 @@ input {
     padding-top: 150px; }
 
   .card-container {
-    padding-top: 12px; }
+    padding-top: 12px;
+    margin-left: 30px; }
 
   /* Recipe Styling Mobile */
-  .mobile-fix {
-    margin-bottom: -120%; }
-
   .recipe-container {
     padding-top: 150px; }
 
