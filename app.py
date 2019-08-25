@@ -6,7 +6,7 @@ import bcrypt
 from flask import Flask, render_template, redirect, request, url_for, flash, session
 from flask_pymongo import PyMongo, pymongo
 from bson.objectid import ObjectId
-from forms import LoginForm, RegisterForm, RecipeForm, DeleteForm
+from forms import LoginForm, RegisterForm, RecipeForm
 from flask_login import current_user, login_user, logout_user, login_required, LoginManager, login_manager
 
 app = Flask(__name__)
@@ -29,11 +29,14 @@ def index():
 def recipe(recipe_id):
     the_recipe = mongo.db.Recipes.find_one({"_id": ObjectId(recipe_id)})
     return render_template('recipe.html', recipe = the_recipe, title = the_recipe['recipe_name'])
-"""
-@app.route('/deleterecipe/<recipe_id>', methods=['GET', 'POST'])
-def deleterecipe(recipe_id):
     
-"""
+    
+
+@app.route('/delete/<recipe_id>', methods=['POST', 'GET'])
+def delete(recipe_id):
+    mongo.db.Recipes.remove({'_id': ObjectId(recipe_id)})
+    flash('Recipe Deleted.')
+    return redirect(url_for('index'))
 
 @app.route('/editrecipe/<recipe_id>', methods=['GET', 'POST'])
 def editrecipe(recipe_id):

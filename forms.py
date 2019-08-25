@@ -27,8 +27,4 @@ class RecipeForm(FlaskForm):
     submit = SubmitField('Add Recipe')
     
 
-class DeleteForm(FlaskForm):
-    delete = StringField('Please enter the recipe name you wish to delete:', validators=[InputRequired('DELETE')])
-    submit = SubmitField('Delete Recipe. Warning, this is irreversible.')
 
-            
