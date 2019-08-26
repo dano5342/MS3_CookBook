@@ -34,6 +34,9 @@ def recipe(recipe_id):
 
 @app.route('/delete/<recipe_id>', methods=['POST', 'GET'])
 def delete(recipe_id):
+    if 'username' not in session:
+        flash('This is not possible for non-members.')
+        return redirect('recipe/<recipe_id>')
     mongo.db.Recipes.remove({'_id': ObjectId(recipe_id)})
     flash('Recipe Deleted.')
     return redirect(url_for('index'))
@@ -95,7 +98,7 @@ def addrecipe():
 def login():
     form = LoginForm()
     if 'logged in' in session:#check user not logged in
-        return redirect(url_for('index.html'))
+        return redirect(url_for('index'))
     if request.method == "POST" and form.validate_on_submit: 
         existing_user = mongo.db.users.find_one({'name': request.form['username']})
         if bcrypt.hashpw(request.form['password'].encode('utf-8'), existing_user['password']): #check password against hash
@@ -108,6 +111,10 @@ def login():
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():
+    
+    if 'username' in session:
+        return redirect(url_for('index'))
+    
     form = RegisterForm()
     if request.method == 'POST':
         users = mongo.db.users

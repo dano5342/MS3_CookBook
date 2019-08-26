@@ -10,7 +10,8 @@ html {
 .main {
   background-color: #D4CAB1;
   background-repeat: repeat;
-  padding-bottom: 25px; }
+  padding-bottom: 25px;
+  min-height: 100%; }
 
 .navbar {
   background-color: #BC0301 !important;
@@ -172,5 +173,11 @@ input {
     height: 30%;
     width: auto;
     padding-left: 25px; } }
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+  .navbar-nav {
+    padding-top: 10px; }
+
+  .nav-btn {
+    width: 50%; } }
 
 /*# sourceMappingURL=main.css.map */

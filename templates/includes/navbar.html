@@ -12,7 +12,7 @@
                 <div class="navbar-nav">
                     {% if 'username' in session %}
                     <div class="nav-btn">
-                        <a class="nav-item nav-link text btn btn-primary" href="{{url_for('index')}}"> <i class="fas fa-home"></i>  Home <span class="sr-only">(current)</span></a>
+                        <a class="nav-item nav-link btn btn-primary" href="{{url_for('index')}}"> <i class="fas fa-home"></i>  Home <span class="sr-only">(current)</span></a>
                     </div>
                     <div class="nav-btn">
                         <a class="nav-item nav-link btn btn-primary" href="{{ url_for('addrecipe') }}"><i class="fas fa-list"></i> New Recipe </a>
