@@ -21,7 +21,16 @@ login_manager = LoginManager(app)
 @app.route('/')
 # Display recipes on the homepage
 def index():
-    return render_template("index.html", recipe=mongo.db.Recipes.find())
+    #Pagination function
+    page_limit = 6
+    current_page = int(request.args.get('current_page', 1))
+    total = mongo.db.Recipes.count()
+    pages = range(1, int(math.ceil(total / page_limit)) + 1)
+    recipes = mongo.db.Recipes.find().sort('_id', pymongo.DESCENDING).skip(
+                            (current_page - 1)*page_limit).limit(page_limit)
+
+    return render_template("index.html", recipe=recipes, pages=pages, 
+                                        current_page=current_page)
 
 ##### Recipe Functions, View, Edit, Create, Delete.
 @app.route('/recipes/<recipe_id>')

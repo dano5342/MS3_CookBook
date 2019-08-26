@@ -3,9 +3,13 @@
 <main role="main" class="main">
 
     <div class="container ind-content">
-        <h3>Our Recipes</h3>
+
         <div class="container">
-            <div class="row" id="#recipes"> <!-- For loop for displaying recipes on the index page, each carded and with an image--> 
+            <div class="row">
+                <h3>Our Recipes</h3>
+            </div>
+            <div class="row" id="#recipes">
+                <!-- For loop for displaying recipes on the index page, each carded and with an image-->
                 {% for r in recipe %}
                 <div class="col card-container">
                     <div class="card text-center" style="width: 18rem;">
@@ -20,7 +24,13 @@
                 {% endfor %}
             </div>
         </div>
-
+        <ul class="pagination">
+            {% for page_number in pages %} {% if page_number == current_page %}
+            <li class="active"><a class="btn btn-primary">{{ page_number }}</a></li>
+            {% else %}
+            <li class="waves-effect"><a href="{{ url_for('index', current_page=page_number) }}" class="btn btn-primary">{{ page_number }}</a></li>
+            {% endif %} {% endfor %}
+        </ul>
     </div>
     <div class="container about-content">
         <h6>About</h6>

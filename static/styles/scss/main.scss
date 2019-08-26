@@ -153,6 +153,12 @@ html {
     padding: 2px;
 }
 
+
+a:not([href]):not([tabindex]) {
+    color: $pink;
+    text-decoration: none;
+}
+
 /* Login / Register styling */
 
 .login-form {

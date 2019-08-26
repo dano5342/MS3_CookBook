@@ -107,6 +107,10 @@ html {
   margin: 4px;
   padding: 2px; }
 
+a:not([href]):not([tabindex]) {
+  color: #FF6E68;
+  text-decoration: none; }
+
 /* Login / Register styling */
 .login-form {
   padding-top: 5%;
