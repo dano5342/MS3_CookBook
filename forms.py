@@ -25,6 +25,4 @@ class RecipeForm(FlaskForm):
     method = TextAreaField('Method:')
     img_url = StringField('Got a photo link?:')
     submit = SubmitField('Add Recipe')
-    
-
 

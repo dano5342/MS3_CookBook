@@ -191,18 +191,20 @@ input {
 
 #method {
     width: 80%;
+    list-style: none;
 }
 
 #ingredients {
+    list-style: none;
     width: 80%;
 }
 
 #recipe_desc {
     width: 80%;
+
 }
 
 /*------------------------Media Queries */
-
 
 @media screen and (max-width: 767px) {
     .navbar-nav {
@@ -246,7 +248,7 @@ input {
     .navbar-nav {
         padding-top: 10px;
     }
-    .nav-btn    {
+    .nav-btn {
         width: 50%;
     }
 }

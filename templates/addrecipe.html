@@ -37,22 +37,18 @@
         </div>
         <div class="row">
             <div class="col">
-                <h6>Please seperate each ingredient with a double comma </h6>
-                <h5>,,</h5>
-                <p>{{ form.hidden_tag() }}{{form.ingredients.label}} {{form.ingredients(placeholder='1 cup beef stock,, 1 large onion,, 1 can pasatta,, 8 lasagna plates,, 4 fresh tomatoes,, 400g beef mince,, 2 cloves garlic,, 2 tbsp olive oil,, 1 pot cream
-                    cheese')}}
+                <p>{{ form.hidden_tag() }}{{ form.ingredients.label }} {{ form.ingredients }}
+                    <a class="i-add"  id="i-add"><button onclick="add" class="btn btn-secondary">+</button></a>
+                    <a><button class="btn btn-secondary remove">-</button></a>
                 </p>
             </div>
-        </div>
-        <div class="row">
             <div class="col text-center">
-                <h6>Please seperate each step using a double fullstop</h6>
-                <h5>..</h5>
-                <p>{{ form.hidden_tag() }} {{form.method.label}} {{form.method(placeholder='Heat oil in a pan and brown mince.. Whilst mince is browning chop onions, garlic and tomatoes and add when finished.. Add pasatta and broth into the pan.. Simmer
-                    for ten minutes then add to a lasagna form a layer of sauce, then lasagna, repeat until no plates left.. Top with creamcheese and bake for 45mins')}}</p>
+
+                <p>{{ form.hidden_tag() }} {{form.method.label}} {{form.method}}
+                    <button class="btn btn-secondary add" id="m-add">+</button>
+                    <button class="btn btn-secondary remove" id="m-rem">-</button></p>
             </div>
         </div>
-
         <div class="row">
             <div class="col">
                 <h6><a href="{{url_for('index')}}" class="btn btn-primary">Go back</a></h6>
@@ -62,7 +58,5 @@
             </div>
         </div>
     </form>
-
 </div>
-
 {%endblock%}

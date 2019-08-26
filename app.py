@@ -86,7 +86,6 @@ def addrecipe():
         return redirect(url_for('register'))
     
     form = RecipeForm()
-    
     if request.method == 'POST' and form.validate_on_submit():
         recipe = mongo.db.Recipes
         recipe.insert_one({'recipe_name': request.form['recipe_name'],

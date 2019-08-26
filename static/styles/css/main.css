@@ -136,9 +136,11 @@ input {
   border-color: #D4CAB1; }
 
 #method {
-  width: 80%; }
+  width: 80%;
+  list-style: none; }
 
 #ingredients {
+  list-style: none;
   width: 80%; }
 
 #recipe_desc {
