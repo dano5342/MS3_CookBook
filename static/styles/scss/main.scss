@@ -189,6 +189,13 @@ input {
     border-color: $main-bg;
 }
 
+#search_db {
+    background-color: $pink;
+    border-color: $main-bg;
+    border-radius: 0.5px;
+    color: $footer;
+}
+
 #method {
     width: 80%;
     list-style: none;

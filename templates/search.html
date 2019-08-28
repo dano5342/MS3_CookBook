@@ -1,4 +1,4 @@
-{% extends 'base.html'%} {% block nav %} {% include 'includes/navbar.html' %} {% endblock %} {% block content %}
+{% extends 'base.html' %} {% block nav %} {% include 'includes/navbar.html'%} {% endblock %} {% block content %}
 
 <main role="main" class="main">
 
@@ -14,14 +14,14 @@
                     <form action="{{ url_for('search') }}">
                         <i class="fas fa-search"></i>
                         <input type="text" name="search_db" id="search_db" placeholder="Thai? Indian?" />
-                        <input type="submit" value="Search" class="btn btn-primary"/>
+                        <input type="submit" value="Search" class="btn btn-primary" />
                     </form>
                 </div>
             </div>
             <div class="container-fluid"></div>
             <div class="row" id="#recipes">
-                <!-- For loop for displaying recipes on the index page, each carded and with an image-->
-                {% for r in recipe %}
+                <!-- For loop for displaying recipes on the searched page, each carded and with an image-->
+                {% if results is defined %} {% for r in results %}
                 <div class="col card-container">
                     <div class="card text-center" style="width: 18rem;">
                         <img class="card-img-top" src="{{ r.img_url }}" alt="{{r.recipe_name }}">
@@ -43,9 +43,13 @@
             {% endif %} {% endfor %}
         </ul>
     </div>
+    {% else %}
+    <h6>Oops! No results matching your search!</h6>
+    {% endif %}
     <div class="container about-content">
         <h6>About</h6>
         <p>This site is a project for Code Institute, I hope that it can inspire users to cook more healthily and more often.</p>
     </div>
 </main>
-{% endblock %} {% block footer %} {% include "includes/footer.html" %} {% endblock %}
+
+{% endblock %} {% block footer %} {% include 'includes/footer.html' %} {% endblock %}

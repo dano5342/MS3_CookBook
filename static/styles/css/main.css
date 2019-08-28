@@ -135,6 +135,12 @@ input {
   background-color: #D4CAB1;
   border-color: #D4CAB1; }
 
+#search_db {
+  background-color: #FF6E68;
+  border-color: #D4CAB1;
+  border-radius: 0.5px;
+  color: #2A222D; }
+
 #method {
   width: 80%;
   list-style: none; }

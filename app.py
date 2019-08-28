@@ -139,6 +139,32 @@ def register():
 
     return render_template('register.html', form=form)
 
+@app.route('/search', methods=["GET", "POST"])
+def search():
+    #Pagination within a search function.
+    page_limit = 6  # Logic for pagination
+    current_page = int(request.args.get('current_page', 1))
+    search_db = request.args['search_db']
+    total = mongo.db.Recipes.find({'$text': {'$search': search_db}})
+    t_total = len([r for r in total])
+    pages = range(1, int(math.ceil(t_total / page_limit)) + 1)
+    results = mongo.db.Recipes.find({'$text': {'$search': search_db}}).sort(
+        '_id', pymongo.ASCENDING).skip((current_page - 1)*page_limit).limit(
+            page_limit)
+    
+    if 'logged_in' in session:
+        current_user = mongo.db.users.find_one()
+        return render_template('search.html',
+                               results=results, pages=pages,
+                               current_page=current_page,
+                               search_db=search_db, current_user=current_user,
+                               title="Your Results")
+    else:
+        return render_template('search.html',
+                               results=results, pages=pages,
+                               current_page=current_page, search_db=search_db,
+                               title="Your Results")
+    
 @app.route('/logout')
 def logout():
     session.clear()
