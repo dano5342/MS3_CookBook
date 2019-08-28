@@ -94,8 +94,8 @@ def addrecipe():
                             'serving': request.form['serving'],
                             'prep_time': request.form['prep_time'],
                             'cook_time': request.form['cook_time'],
-                            'ingredients': request.form.getlist['ingredients'],
-                            'method': request.form.getlist['method'],
+                            'ingredients': request.form.getlist('ingredients'),
+                            'method': request.form.getlist('method'),
                             'img_url': request.form['img_url']})
         flash('Recipe successfully added.')
         return redirect(url_for('index'))
