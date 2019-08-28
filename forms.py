@@ -21,8 +21,6 @@ class RecipeForm(FlaskForm):
     serving = IntegerField('Serving Size:')
     prep_time = IntegerField('Preparation Time:')
     cook_time = IntegerField('Cooking Time:')
-    ingredients = TextAreaField('Ingredients:') 
-    method = TextAreaField('Method:')
     img_url = StringField('Got a photo link?:')
     submit = SubmitField('Add Recipe')
 

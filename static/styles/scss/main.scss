@@ -183,6 +183,10 @@ a:not([href]):not([tabindex]) {
     height: 100%;
 }
 
+.add-container {
+    background: $red;
+}
+
 textarea,
 input {
     background-color: $main-bg;

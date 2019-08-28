@@ -8,59 +8,77 @@
     <form class="recipe-form-add text-center" method="POST">
         <div class="row">
             <div class="col">
-                <p>{{ form.hidden_tag() }} {{form.recipe_name.label}} {{ form.recipe_name(placeholder='Lasanga') }}</p>
-            </div>
-            <div class="col">
-                <p>{{ form.hidden_tag() }} {{ form.recipe_type.label }} {{ form.recipe_type(placeholder='Italian, Gluten Free etc.') }}</p>
-            </div>
-            <div class="col">
-                <p>{{ form.hidden_tag() }} {{ form.serving.label }} {{form.serving(placeholder='4')}}</p>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col">
-                <p>{{ form.hidden_tag() }} {{form.prep_time.label}} {{form.prep_time(placeholder='25')}}</p>
-            </div>
-            <div class="col">
-                <p>{{ form.hidden_tag() }} {{form.cook_time.label}} {{form.cook_time(placeholder='40')}}</p>
+                <div class="card container add-container">
+                    {{ form.hidden_tag() }} {{form.recipe_name.label}} {{ form.recipe_name(placeholder='Lasanga') }}
+                    <div class="row">
+                        <div class="col">
+                            {{ form.hidden_tag() }} {{ form.recipe_type.label }} {{ form.recipe_type(placeholder='Italian, Gluten Free etc.') }}
+                        </div>
+                        <div class="col">
+                            {{ form.hidden_tag() }} {{ form.serving.label }} {{form.serving(placeholder='4')}}
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="row">
             <div class="col">
-                <p>{{ form.hidden_tag() }} {{form.img_url.label}} {{form.img_url(placeholder='Paste it here!')}}</p>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col">
-                <p>{{ form.hidden_tag() }} {{form.recipe_desc.label}} {{form.recipe_desc(placeholder='A creamy Italian favourite, layers of tomato and cheesy sauces with plates of spaghetti inbetween. Great for a few days!')}}</p>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col">
-                <h6>Please seperate each ingredient with a double comma </h6>
-                <h5>,,</h5>
-                <p>{{ form.hidden_tag() }}{{ form.ingredients.label }} {{ form.ingredients }}
-                    <button class="btn btn-secondary i-add">+</button>
-                    <button class="btn btn-secondary i-remove">-</button>
-                </p>
-            </div>
-            <div class="col text-center">
-                <h6>Please seperate each step using a double fullstop</h6>
-                <h5>..</h5>
-                <p>{{ form.hidden_tag() }} {{form.method.label}} {{form.method}}
-                    <button class="btn btn-secondary m-add" id="m-add">+</button>
-                    <button class="btn btn-secondary m-remove" id="m-rem">-</button></p>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col">
-                <h6><a href="{{url_for('index')}}" class="btn btn-primary">Go back</a></h6>
-            </div>
-            <div class="col">
-                <button class="btn btn-secondary" type="submit" name="action">Add</button>
+                <div class="card container add-container">
+                    <h4>Recipe Description</h4>
+                    {{ form.hidden_tag() }} {{form.recipe_desc(placeholder='A creamy Italian favourite, layers of tomato and cheesy sauces with plates of spaghetti inbetween. Great for a few days!')}}
+                    <div class="row">
+                        <div class="col">
+                            {{ form.hidden_tag() }} {{form.prep_time.label}} {{form.prep_time(placeholder='25')}}
+                        </div>
+                        <div class="col">
+                            {{ form.hidden_tag() }} {{form.cook_time.label}} {{form.cook_time(placeholder='40')}}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">{{ form.hidden_tag() }} {{form.img_url.label}} {{form.img_url(placeholder='Paste it here!')}}</div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </form>
+    <div class="card container add-container">
+        <div class="row">
+            <div class="col ingredients">
+                <form class="ingredients">
+                    <input type="text" name="ingredients" />
+                </form>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col text-center button-container">
+                <button class="btn btn-secondary i-add" type="button">+</button>
+                <button class="btn btn-secondary i-remove" type="button">-</button>
+            </div>
+        </div>
+    </div>
+    <div class="card container add-container">
+        <div class="row">
+            <div class="col">
+                <form class="method">
+                    <input type="text" name="method" />
+                </form>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col text-center button-container">
+                <button class="btn btn-secondary m-add" type="button">+</button>
+                <button class="btn btn-secondary m-remove" type="button">-</button>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <h6><a href="{{url_for('index')}}" class="btn btn-primary">Go back</a></h6>
+        </div>
+        <div class="col">
+            <button class="btn btn-secondary" type="submit" name="action">Add</button>
+        </div>
+    </div>
 </div>
-{%endblock%}
-{% block footer %} {% include 'includes/footer.html' %} {% endblock %}
+{%endblock%} {% block footer %} {% include 'includes/footer.html' %} {% endblock %} %}

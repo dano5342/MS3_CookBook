@@ -88,14 +88,14 @@ def addrecipe():
     form = RecipeForm()
     if request.method == 'POST' and form.validate_on_submit():
         recipe = mongo.db.Recipes
-        recipe.insert_one({'recipe_name': request.form['recipe_name'],
+        recipe.insert({'recipe_name': request.form['recipe_name'],
                             'recipe_type': request.form['recipe_type'],
                             'recipe_desc': request.form['recipe_desc'],
                             'serving': request.form['serving'],
                             'prep_time': request.form['prep_time'],
                             'cook_time': request.form['cook_time'],
-                            'ingredients': request.form['ingredients'].split(",,"),
-                            'method': request.form['method'].split(".."),
+                            'ingredients': request.form.getlist['ingredient'],
+                            'method': request.form.getlist['method'],
                             'img_url': request.form['img_url']})
         flash('Recipe successfully added.')
         return redirect(url_for('index'))
