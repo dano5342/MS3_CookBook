@@ -3,7 +3,7 @@ let ingCount = $(".ingredients").length;
 /* Add new ingredient line */
 $(".i-add").click(function() {
     /* Clone line, insert before add/remove btns and clear existing values */
-    $(".ingredients:first").append("<form class='ingredients'> <input type='text' name='ingredients' /> </form>")
+    $(".ingredients:first").append("<input type='text' name='ingredients' class='ingredients'/>")
         .insertBefore(".i-add")
         .find("input[type='text']").val("");
     /* Ensures original line is never removed */
@@ -24,7 +24,7 @@ let methodCount = $(".method").length;
 /* Add new line */
 $(".m-add").click(function() {
     /* Clone line, insert before add/remove btns and clear existing values */
-    $(".method:first").append("<form class='method'> <input type='text' name='method' /> </form>")
+    $(".method:first").append("<input type='text' name='method' class='method'/>")
         .insertBefore(".m-add")
         .find("input[type='text']").val("");
     /* Ensures original line is never removed */
