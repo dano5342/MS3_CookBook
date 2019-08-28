@@ -37,13 +37,17 @@
         </div>
         <div class="row">
             <div class="col">
+                <h6>Please seperate each ingredient with a double comma </h6>
+                <h5>,,</h5>
+
                 <p>{{ form.hidden_tag() }}{{ form.ingredients.label }} {{ form.ingredients }}
-                    <a class="i-add"  id="i-add"><button onclick="add" class="btn btn-secondary">+</button></a>
+                    <a class="i-add" id="i-add"><button onclick="add" class="btn btn-secondary">+</button></a>
                     <a><button class="btn btn-secondary remove">-</button></a>
                 </p>
             </div>
             <div class="col text-center">
-
+                <h6>Please seperate each step using a double fullstop</h6>
+                <h5>..</h5>
                 <p>{{ form.hidden_tag() }} {{form.method.label}} {{form.method}}
                     <button class="btn btn-secondary add" id="m-add">+</button>
                     <button class="btn btn-secondary remove" id="m-rem">-</button></p>
