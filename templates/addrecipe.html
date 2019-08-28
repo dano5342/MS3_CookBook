@@ -9,7 +9,8 @@
         <div class="row">
             <div class="col">
                 <div class="card container add-container">
-                    {{ form.hidden_tag() }} {{form.recipe_name.label}} {{ form.recipe_name(placeholder='Lasanga') }}
+                    <h4>Recipe Name</h4>
+                    {{ form.hidden_tag() }} {{ form.recipe_name(placeholder='Lasanga') }}
                     <div class="row">
                         <div class="col">
                             {{ form.hidden_tag() }} {{ form.recipe_type.label }} {{ form.recipe_type(placeholder='Italian, Gluten Free etc.') }}
@@ -41,44 +42,47 @@
 
             </div>
         </div>
-    </form>
-    <div class="card container add-container">
-        <div class="row">
-            <div class="col ingredients">
-                <form class="ingredients">
-                    <input type="text" name="ingredients" />
-                </form>
+
+        <div class="card container add-container text-center">
+            <h4>Ingredients</h4>
+            <div class="row">
+                <div class="col">
+                    <form class="ingredients">
+                        <input type="text" name="ingredients" />
+                    </form>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col text-center button-container">
+                    <button class="btn btn-secondary i-add" type="button">+</button>
+                    <button class="btn btn-secondary i-remove" type="button">-</button>
+                </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col text-center button-container">
-                <button class="btn btn-secondary i-add" type="button">+</button>
-                <button class="btn btn-secondary i-remove" type="button">-</button>
+        <div class="card container add-container text-center">
+            <div class="row">
+                <div class="col">
+                    <form class="method">
+                        <input type="text" name="method" />
+                    </form>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col text-center button-container">
+                    <button class="btn btn-secondary m-add" type="button">+</button>
+                    <button class="btn btn-secondary m-remove" type="button">-</button>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="card container add-container">
         <div class="row">
             <div class="col">
-                <form class="method">
-                    <input type="text" name="method" />
-                </form>
+                <h6><a href="{{url_for('index')}}" class="btn btn-primary">Go back</a></h6>
+            </div>
+            <div class="col">
+                <button class="btn btn-secondary" type="submit" name="action">Add</button>
             </div>
         </div>
-        <div class="row">
-            <div class="col text-center button-container">
-                <button class="btn btn-secondary m-add" type="button">+</button>
-                <button class="btn btn-secondary m-remove" type="button">-</button>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col">
-            <h6><a href="{{url_for('index')}}" class="btn btn-primary">Go back</a></h6>
-        </div>
-        <div class="col">
-            <button class="btn btn-secondary" type="submit" name="action">Add</button>
-        </div>
-    </div>
+    </form>
 </div>
+
 {%endblock%} {% block footer %} {% include 'includes/footer.html' %} {% endblock %} %}
