@@ -3,7 +3,7 @@ let ingCount = $(".ingredients").length;
 /* Add new ingredient line */
 $(".i-add").click(function() {
     /* Clone line, insert before add/remove btns and clear existing values */
-    $(".ingredients:first").append("<input type='text' name='ingredients' class='ingredients'/>")
+    $(".ingredients:first").append("<input type='text' name='ingredients' class='ingredients' placeholder='One ingredient per box!'/>")
         .insertBefore(".i-add")
         .find("input[type='text']").val("");
     /* Ensures original line is never removed */

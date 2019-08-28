@@ -57,22 +57,22 @@ def editrecipe(recipe_id):
         return redirect(url_for('register'))
         
     form = RecipeForm()
-    getrep = mongo.db.Recipes.find_one({'_id': ObjectId(recipe_id)})
-    if request.method == 'GET':
+    getrep = mongo.db.Recipes.find_one({'_id': ObjectId(recipe_id)}) #Find the recipe to edit
+    if request.method == 'GET': #GET the recipe
         form = RecipeForm(data=getrep)
         return render_template('edit_recipe.html', recipe=getrep,
                                 form=form, title="Edit Recipe")
     if form.validate_on_submit:
         rec = mongo.db.Recipes
         rec.update_one({'_id': ObjectId(recipe_id),},{
-            '$set':{'recipe_name': request.form['recipe_name'],
+            '$set':{'recipe_name': request.form['recipe_name'], # Populates the fields with the data to be edited.
                     'recipe_type': request.form['recipe_type'],
                     'recipe_desc': request.form['recipe_desc'],
                     'serving': request.form['serving'],
                     'prep_time': request.form['prep_time'],
                     'cook_time': request.form['cook_time'],
-                    'ingredients': request.form['ingredients'].split(",,"),
-                    'method': request.form['method'].split(".."),
+                    'ingredients': request.form.getlist('ingredients'),
+                    'method': request.form.getlist('method'), # Lists for Ingredients and Method to store in an array.
                     'img_url': request.form['img_url']
             }})
         flash('Recipe Succesfully Updated.')
@@ -95,7 +95,7 @@ def addrecipe():
                             'prep_time': request.form['prep_time'],
                             'cook_time': request.form['cook_time'],
                             'ingredients': request.form.getlist('ingredients'),
-                            'method': request.form.getlist('method'),
+                            'method': request.form.getlist('method'), # Lists for Ingredients and Method to store in an array.
                             'img_url': request.form['img_url']})
         flash('Recipe successfully added.')
         return redirect(url_for('index'))
