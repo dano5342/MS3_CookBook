@@ -15,12 +15,12 @@ class RegisterForm(FlaskForm):
 
 
 class RecipeForm(FlaskForm):
-    recipe_name = StringField('Recipe Name:', validators=[DataRequired(), Length(min=7, max=50)])
-    recipe_type = StringField('Recipe Type:', validators=[DataRequired(), Length(min=7, max=50)])
-    recipe_desc = StringField('Description:', validators=[DataRequired(), Length(min=10, max=100)])
-    serving = IntegerField('Serving Size:', validators=[DataRequired()])
-    prep_time = IntegerField('Preparation Time:', validators=[DataRequired()])
-    cook_time = IntegerField('Cooking Time:', validators=[DataRequired()])
+    recipe_name = StringField('Recipe Name:')
+    recipe_type = StringField('Recipe Type:')
+    recipe_desc = StringField('Description:')
+    serving = IntegerField('Serving Size:')
+    prep_time = IntegerField('Preparation Time:')
+    cook_time = IntegerField('Cooking Time:')
     img_url = StringField('Got a photo link?:')
     submit = SubmitField('Add Recipe')
 
