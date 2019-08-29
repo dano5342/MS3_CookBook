@@ -13,7 +13,9 @@ class RegisterForm(FlaskForm):
     password = PasswordField('Password', validators=[DataRequired(), Length(min=5, max=100)])
     submit = SubmitField('Register')
 
+
 ## Custom forms for single input fields. ARRAYS had to be done manually.
+
 class RecipeForm(FlaskForm):
     recipe_name = StringField('Recipe Name:')
     recipe_type = StringField('Recipe Type:')

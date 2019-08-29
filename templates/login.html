@@ -4,6 +4,10 @@
     <form class="login-form text-center" method="POST">
         <img class="mb-4" src="{{url_for('static', filename='images/logo.png')}}" alt="CookBook Logo"> {{ form.hidden_tag() }}
         <h6 class="text">Not a member? <a href="{{url_for('register')}}">Sign up here</a></h6>
+<<<<<<< HEAD
+=======
+
+>>>>>>> parent of b40e29b... gone through and tidied up code, commented sections where thought processes necessary
         <p>
             {{ form.username.label }}<br> {{ form.username(size=32, required=true, placeholder="JoeBloggs123") }}
         </p>

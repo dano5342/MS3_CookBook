@@ -42,6 +42,7 @@ def recipe(recipe_id):
     
 
 @app.route('/delete/<recipe_id>', methods=['POST', 'GET'])
+
 def delete(recipe_id): ## non users cannot delete recipes. redirects back to recipe
     if 'username' not in session:
         flash('This is not possible for non-members.')
@@ -132,6 +133,7 @@ def register():
             hashpass = bcrypt.hashpw(request.form['password'].encode('utf-8'), bcrypt.gensalt())#generate password hash
             users.insert({'name' : request.form['username'], 'password' : hashpass})
             session['username'] = request.form['username'] ## User is now successfully logged in
+            session['username'] = request.form['username']
             flash('User creation successful!')
             return redirect(url_for('index'))
         
@@ -145,6 +147,7 @@ def search():
     page_limit = 6  # Logic for pagination
     current_page = int(request.args.get('current_page', 1))
     search_db = request.args['search_db']### get the searchdb form and use this to check against the index in the DB
+    search_db = request.args['search_db']
     total = mongo.db.Recipes.find({'$text': {'$search': search_db}})
     t_total = len([r for r in total])
     pages = range(1, int(math.ceil(t_total / page_limit)) + 1)

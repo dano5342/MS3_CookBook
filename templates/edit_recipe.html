@@ -1,5 +1,9 @@
 {% extends 'base.html' %} {% block content %}
+<<<<<<< HEAD
 <!-- Forms page for serving data to the user, for updating the recipes in the database collection -->
+=======
+
+>>>>>>> parent of b40e29b... gone through and tidied up code, commented sections where thought processes necessary
 <div class="container-fluid recipe-container-add">
     <div class="row">
         <div class="col">
@@ -43,14 +47,17 @@
 
             </div>
         </div>
+<<<<<<< HEAD
         <!--Xustom forms serving arrays of ingredients/methods for each recipe -->
+=======
+>>>>>>> parent of b40e29b... gone through and tidied up code, commented sections where thought processes necessary
         <div class="row spacing">
             <div class="col">
                 <div class="card container add-container text-center d-flex justify-content-center">
                     <h4>Ingredients</h4>
                     <div class="row d-flex justify-content-center">
                         {% for i in recipe.ingredients %}
-                        <input type="text" name="ingredients" class="ingredients" value="{{ i }}"/> {% endfor %}
+                        <input type="text" name="ingredients" class="ingredients" placeholder="{{ i }}"/> {% endfor %}
                     </div>
                     <div class="row">
                         <div class="col text-center button-container">
@@ -68,7 +75,7 @@
                     <div class="row">
                         <div class="col">
                             {% for m in recipe.method %}
-                            <input type="text" name="methods" class="methods" value=" {{ m }} "/> {% endfor %}
+                            <input type="text" name="methods" class="methods" placeholder=" {{ m }} "/> {% endfor %}
                         </div>
                         <div class="row">
                             <div class="col text-center button-container">
