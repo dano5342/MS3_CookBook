@@ -66,7 +66,7 @@ if __name__ == '__main__':
         debug=True) 
 ```
 As this enables the user to see any potential bugs on the site and exploit this.
-Environment variables were stored in my `.bashrc` folder to prevent malicious coders from exploiting my database and ruining work, I did accidentally upload these in a previous repository as can be seen in the first commit message on this project, however they are fully unavailable now.
+Environment variables were stored in my `.bashrc` folder to prevent malicious coders from exploiting my database and ruining work, I did accidentally upload these in a previous repository as can be seen in the first commit message on this project, however they are fully unavailable now. 
 #### Deploying Locally
 1. Git Clone this application into an IDE or onto a workspace on your computer.
 2. Ensure python3 and pip are installed on your machine
@@ -77,7 +77,7 @@ Environment variables were stored in my `.bashrc` folder to prevent malicious co
 
 ### Acknowledgements
 As a student of Code Institute, I'd like to thank my mentor for his help on the project scope and minor testing during our calls
-From the other students I'd like to thank Shane Muirhead, as he explained some of the documentation surrounding Indexing for text search, and password hashing.
+From the other students I'd like to thank Shane Muirhead, as he explained some of the documentation surrounding indexing for text search with mongo db and helped me with the logic for this, and password hashing differences.
 ##### Guides
 I'd like to also acknowledge Miguel Grinbergs Flask Mega Tutorial for his amazing guide for a CRUD Blog site, whilst not fully read through it certainly helped in some aspects of the build.
 [Corey Schafer](https://www.youtube.com/user/schafer5) and [PrettyPrinted](https://www.youtube.com/channel/UC-QDfvrRIDB6F0bIO4I4HkQ)'s Videos were exceptionally helpful during the building of this project.
