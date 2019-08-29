@@ -109,7 +109,7 @@ def login():
         return redirect(url_for('index'))
     if request.method == "POST" and form.validate_on_submit: 
         existing_user = mongo.db.users.find_one({'name': request.form['username']})
-        if bcrypt.hashpw(request.form['password'].encode('utf-8'), existing_user['password']): #check password against hash
+        if bcrypt.checkpw(request.form['password'].encode('utf-8'), existing_user['password']): #check password against hash
             session['username'] = request.form['username']
             session['logged in'] = True
             return redirect(url_for('index'))
