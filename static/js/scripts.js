@@ -1,4 +1,4 @@
-let ingCount = $(".ingredients").length;
+let ingredientCounter = $(".ingredients").length;
 
 /* Add new ingredient line */
 $(".i-add").click(function() {
@@ -6,13 +6,13 @@ $(".i-add").click(function() {
     $(".ingredients:last").append("<input type='text' name='ingredients' class='ingredients' placeholder='One ingredient per box!'/>")
         .insertBefore(".i-add")
         .find("input[type='text']").val("");
-    ingCount += 1;
+    ingredientCounter += 1;
 });
 /* Remove last ingredients line */
 $(".i-remove").click(function() {
-    if (ingCount > 1) {
+    if (ingredientCounter > 1) {
         $(".ingredients:last").remove();
-        ingCount -= 1;
+        ingredientCounter -= 1;
     }
 });
 

@@ -94,6 +94,10 @@ html {
 .pagination {
   padding-top: 15px; }
 
+.paginate {
+  padding: 3px;
+  margin: 2px; }
+
 /* Recipe Content Styling */
 .recipe-container {
   padding-top: 120px; }
@@ -153,13 +157,13 @@ input {
   border-radius: 0.5px;
   color: #2A222D; }
 
-.method {
-  width: 80%;
-  list-style: none; }
-
 .ingredients {
   list-style: none;
   width: 40%; }
+
+.methods {
+  width: 80%;
+  list-style: none; }
 
 #recipe_desc {
   width: 80%; }

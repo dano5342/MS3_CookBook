@@ -37,9 +37,9 @@
             </div>
             <ul class="pagination">
                 {% for page_number in pages %} {% if page_number == current_page %}
-                <li class="active"><a class="btn btn-primary">{{ page_number }}</a></li>
+                <li class="active"><a class="btn btn-primary paginate">{{ page_number }}</a></li>
                 {% else %}
-                <li class="waves-effect"><a href="{{ url_for('index', current_page=page_number) }}" class="btn btn-primary">{{ page_number }}</a></li>
+                <li class="waves-effect"><a href="{{ url_for('index', current_page=page_number) }}" class="btn btn-primary paginate">{{ page_number }}</a></li>
                 {% endif %} {% endfor %}
             </ul>
         </div>
