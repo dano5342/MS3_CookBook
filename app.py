@@ -72,7 +72,7 @@ def editrecipe(recipe_id):
                     'prep_time': request.form['prep_time'],
                     'cook_time': request.form['cook_time'],
                     'ingredients': request.form.getlist('ingredients'),
-                    'method': request.form.getlist('method'), # Lists for Ingredients and Method to store in an array.
+                    'method': request.form.getlist('methods'), # Lists for Ingredients and Method to store in an array.
                     'img_url': request.form['img_url']
             }})
         flash('Recipe Succesfully Updated.')
@@ -95,7 +95,7 @@ def addrecipe():
                             'prep_time': request.form['prep_time'],
                             'cook_time': request.form['cook_time'],
                             'ingredients': request.form.getlist('ingredients'),
-                            'method': request.form.getlist('method'), # Lists for Ingredients and Method to store in an array.
+                            'method': request.form.getlist('methods'), # Lists for Ingredients and Method to store in an array.
                             'img_url': request.form['img_url']})
         flash('Recipe successfully added.')
         return redirect(url_for('index'))
