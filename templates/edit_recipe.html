@@ -50,7 +50,7 @@
                     <h4>Ingredients</h4>
                     <div class="row d-flex justify-content-center">
                         {% for i in recipe.ingredients %}
-                        <input type="text" name="ingredients" class="ingredients" placeholder="{{ i }}"/> {% endfor %}
+                        <input type="text" name="ingredients" class="ingredients" value="{{ i }}"/> {% endfor %}
                     </div>
                     <div class="row">
                         <div class="col text-center button-container">
@@ -68,7 +68,7 @@
                     <div class="row">
                         <div class="col">
                             {% for m in recipe.method %}
-                            <input type="text" name="methods" class="methods" placeholder=" {{ m }} "/> {% endfor %}
+                            <input type="text" name="methods" class="methods" value=" {{ m }} "/> {% endfor %}
                         </div>
                         <div class="row">
                             <div class="col text-center button-container">
