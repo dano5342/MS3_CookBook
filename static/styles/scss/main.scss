@@ -132,6 +132,10 @@ html {
     color: $footer;
 }
 
+.pagination {
+    padding-top: 15px;
+}
+
 /* Recipe Content Styling */
 
 .recipe-container {
@@ -180,17 +184,24 @@ a:not([href]):not([tabindex]) {
     padding-top: 15px;
     background-color: $footer;
     color: $pink;
-    height: 100%;
+    min-height: 100%;
 }
 
 .add-container {
     background: $red;
+    padding: 15px;
+}
+
+.spacing {
+    padding: 4px;
 }
 
 textarea,
 input {
     background-color: $main-bg;
     border-color: $main-bg;
+    margin: 4px;
+    padding: 3px;
 }
 
 #search_db {
@@ -200,14 +211,14 @@ input {
     color: $footer;
 }
 
-#method {
+.method {
     width: 80%;
     list-style: none;
 }
 
-#ingredients {
+.ingredients {
     list-style: none;
-    width: 80%;
+    width: 40%;
 }
 
 #recipe_desc {
@@ -218,6 +229,7 @@ input {
 /*------------------------Media Queries */
 
 @media screen and (max-width: 767px) {
+    /* -------- Nav bar settings --- */
     .navbar-nav {
         padding-top: 10px;
     }
@@ -226,20 +238,33 @@ input {
         color: $pink;
         width: 50%;
     }
+
     .recipe-container-add {
         padding-top: 15px;
         background-color: $footer;
         color: #FF6E68;
     }
+
+    .ingredients {
+        list-style: none;
+        width: 60%;
+    }
+
     .main {
         margin-top: -25px;
     }
+
     .ind-content {
         padding-top: 150px;
     }
+
     .card-container {
         padding-top: 12px;
         margin-left: 30px;
+    }
+
+    #recipes {
+        margin-left: -45px;
     }
 
     /* Recipe Styling Mobile */

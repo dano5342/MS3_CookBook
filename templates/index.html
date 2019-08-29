@@ -14,34 +14,35 @@
                     <form action="{{ url_for('search') }}">
                         <i class="fas fa-search"></i>
                         <input type="text" name="search_db" id="search_db" placeholder="Thai? Indian?" />
-                        <input type="submit" value="Search" class="btn btn-primary"/>
+                        <input type="submit" value="Search" class="btn btn-primary" />
                     </form>
                 </div>
             </div>
-            <div class="container-fluid"></div>
-            <div class="row" id="#recipes">
-                <!-- For loop for displaying recipes on the index page, each carded and with an image-->
-                {% for r in recipe %}
-                <div class="col card-container">
-                    <div class="card text-center" style="width: 18rem;">
-                        <img class="card-img-top" src="{{ r.img_url }}" alt="{{r.recipe_name }}">
-                        <div class="card-body">
-                            <h5 class="card-title">{{ r.recipe_name }}</h5>
-                            <p class="card-text">{{ r.recipe_type }}</p>
-                            <a href="{{ url_for('recipe', recipe_id=r._id) }}" class="btn btn-primary">Full Recipe</a>
+            <div class="container-fluid">
+                <div class="row" id="recipes">
+                    <!-- For loop for displaying recipes on the index page, each carded and with an image-->
+                    {% for r in recipe %}
+                    <div class="col card-container">
+                        <div class="card text-center" style="width: 18rem;">
+                            <img class="card-img-top" src="{{ r.img_url }}" alt="{{r.recipe_name }}">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ r.recipe_name }}</h5>
+                                <p class="card-text">{{ r.recipe_type }}</p>
+                                <a href="{{ url_for('recipe', recipe_id=r._id) }}" class="btn btn-primary">Full Recipe</a>
+                            </div>
                         </div>
                     </div>
+                    {% endfor %}
                 </div>
-                {% endfor %}
             </div>
+            <ul class="pagination">
+                {% for page_number in pages %} {% if page_number == current_page %}
+                <li class="active"><a class="btn btn-primary">{{ page_number }}</a></li>
+                {% else %}
+                <li class="waves-effect"><a href="{{ url_for('index', current_page=page_number) }}" class="btn btn-primary">{{ page_number }}</a></li>
+                {% endif %} {% endfor %}
+            </ul>
         </div>
-        <ul class="pagination">
-            {% for page_number in pages %} {% if page_number == current_page %}
-            <li class="active"><a class="btn btn-primary">{{ page_number }}</a></li>
-            {% else %}
-            <li class="waves-effect"><a href="{{ url_for('index', current_page=page_number) }}" class="btn btn-primary">{{ page_number }}</a></li>
-            {% endif %} {% endfor %}
-        </ul>
     </div>
     <div class="container about-content">
         <h6>About</h6>

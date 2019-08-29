@@ -1,4 +1,5 @@
 {% extends 'base.html' %} {% block content %}
+
 <div class="container-fluid recipe-container-add">
     <div class="row">
         <div class="col">
@@ -6,9 +7,9 @@
         </div>
     </div>
     <form class="recipe-form-add text-center" method="POST">
-        <div class="row">
+        <div class="row spacing">
             <div class="col">
-                <div class="card container add-container">
+                <div class="card container add-container  d-flex justify-content-center">
                     <h4>Recipe Name</h4>
                     {{ form.hidden_tag() }} {{ form.recipe_name(placeholder='Lasanga') }}
                     <div class="row">
@@ -22,9 +23,9 @@
                 </div>
             </div>
         </div>
-        <div class="row">
+        <div class="row spacing">
             <div class="col">
-                <div class="card container add-container">
+                <div class="card container add-container d-flex justify-content-center">
                     <h4>Recipe Description</h4>
                     {{ form.hidden_tag() }} {{form.recipe_desc(placeholder='A creamy Italian favourite, layers of tomato and cheesy sauces with plates of spaghetti inbetween. Great for a few days!')}}
                     <div class="row">
@@ -42,27 +43,40 @@
 
             </div>
         </div>
-
-        <div class="card container add-container text-center">
-            <h4>Ingredients</h4>
-            <div class="row ingredients">
-                <input type="text" name="ingredients" class="ingredients" placeholder="One ingredient per box!"/>
-            </div>
-            <div class="row">
-                <div class="col text-center button-container">
-                    <button class="btn btn-secondary i-add" type="button">+</button>
-                    <button class="btn btn-secondary i-remove" type="button">-</button>
+        <div class="row spacing">
+            <div class="col">
+                <div class="card container add-container text-center d-flex justify-content-center">
+                    <h4>Ingredients</h4>
+                    <div class="row">
+                        <div class="col">
+                            <input type="text" name="ingredients" class="ingredients" placeholder="One ingredient per box!" required/>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col text-center button-container">
+                            <button class="btn btn-secondary i-add" type="button">+</button>
+                            <button class="btn btn-secondary i-remove" type="button">-</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="card container add-container text-center">
-            <div class="row method">
-                <input type="text" name="method" class="method" placeholder />
-            </div>
-            <div class="row">
-                <div class="col text-center button-container">
-                    <button class="btn btn-secondary m-add" type="button">+</button>
-                    <button class="btn btn-secondary m-remove" type="button">-</button>
+        <div class="row spacing">
+            <div class="col">
+                <div class="card container add-container text-center d-flex justify-content-center">
+                    <h4>Method</h4>
+                    <div class="row d-flex justify-content-center">
+                        <div class="col">
+                            <p>
+                                <input type="textarea" name="method" class="methods" required/></p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col text-center button-container">
+                            <button class="btn btn-secondary m-add" type="button">+</button>
+                            <button class="btn btn-secondary m-remove" type="button">-</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
