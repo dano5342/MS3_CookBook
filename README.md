@@ -20,7 +20,11 @@ The main Features of this website will be CRUD utilities to be able to Create, R
 This was removed from my scope as CRUD was the main focus of this project. I think that my python logic here is good and that it displays a keen knowledge of how to link backend and front end together.
 
 The application displays the recipe, method and ingredients for each recipe in its own templated page, whilst also allowing the user to determine what type of cuisine this is and allowing them to attribute an image to each recipe that they upload. This can be easily modified too, taking the data back from the DB and parsing it into prepopulated forms for the user to browse and amend as necessary.
+
+
 #### Potential Future Features
+
+
 At some point i'd like to revisit this project and implement the data dashboard of cook/prep times on the display page for each recipe, this should be achievable with D3 or matplotlib for Python.
 I'd also like to make the page more streamline for example a single login/register page with 2 cards on the same page for easier logging in.
 In future I'd like the project to have the reviews displayed after each recipe, with a vote system to see which recipes are more popular and a display for this on a seperate page ranking from top to bottom.
