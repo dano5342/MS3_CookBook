@@ -3,7 +3,7 @@
     <form class="login-form text-center" method="POST">
         <img class="mb-4" src="{{url_for('static', filename='images/logo.png')}}" alt="CookBook Logo"> {{ form.hidden_tag() }}
         <h6 class="text">Not a member? <a href="{{url_for('register')}}">Sign up here</a></h6>
-
+<!-- Login Form, with links to registration if not a member -->
         <p>
             {{ form.username.label }}<br> {{ form.username(size=32, required=true, placeholder="JoeBloggs123") }}
         </p>

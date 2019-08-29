@@ -42,8 +42,8 @@ def recipe(recipe_id):
     
 
 @app.route('/delete/<recipe_id>', methods=['POST', 'GET'])
-def delete(recipe_id):
-    if 'username' not in session:
+def delete(recipe_id): # Delete function for removing a recipe.
+    if 'username' not in session: # NOTE all users can delete and edit all recipes
         flash('This is not possible for non-members.')
         return redirect('recipe/<recipe_id>')
     mongo.db.Recipes.remove({'_id': ObjectId(recipe_id)})
@@ -81,7 +81,7 @@ def editrecipe(recipe_id):
 
 @app.route('/addrecipe', methods=['GET','POST'])
 def addrecipe():
-    if 'username' not in session:
+    if 'username' not in session:#Disables ability for random users to CreateUpdate or Delete recipes
         flash('Not possible for non-members! Please create an account.')
         return redirect(url_for('register'))
     
@@ -130,7 +130,7 @@ def register():
 
         if existing_user is None:
             hashpass = bcrypt.hashpw(request.form['password'].encode('utf-8'), bcrypt.gensalt())#generate password hash
-            users.insert({'name' : request.form['username'], 'password' : hashpass})
+            users.insert({'name' : request.form['username'], 'password' : hashpass}) #inserts the username and password in to the db
             session['username'] = request.form['username']
             flash('User creation successful!')
             return redirect(url_for('index'))
@@ -138,21 +138,21 @@ def register():
         flash('That username already exists!')
 
     return render_template('register.html', form=form)
-
+########Search function for searching the INGREDIENTS and TYPE database collections.
 @app.route('/search', methods=["GET", "POST"])
 def search():
     #Pagination within a search function.
     page_limit = 6  # Logic for pagination
     current_page = int(request.args.get('current_page', 1))
-    search_db = request.args['search_db']
+    search_db = request.args['search_db'] # search field area on the index page
     total = mongo.db.Recipes.find({'$text': {'$search': search_db}})
     t_total = len([r for r in total])
     pages = range(1, int(math.ceil(t_total / page_limit)) + 1)
     results = mongo.db.Recipes.find({'$text': {'$search': search_db}}).sort(
         '_id', pymongo.ASCENDING).skip((current_page - 1)*page_limit).limit(
-            page_limit)
+            page_limit) # sort the results in ascending order based on id number.
     
-    if 'logged_in' in session:
+    if 'username' in session:
         current_user = mongo.db.users.find_one()
         return render_template('search.html',
                                results=results, pages=pages,
@@ -167,7 +167,7 @@ def search():
     
 @app.route('/logout')
 def logout():
-    session.clear()
+    session.clear() #log out the user and refresh session
     return redirect(url_for('index'))
 
 if __name__ == '__main__':

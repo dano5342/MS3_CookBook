@@ -21,7 +21,7 @@
             <div class="container-fluid"></div>
             <div class="row" id="#recipes">
                 <!-- For loop for displaying recipes on the searched page, each carded and with an image-->
-                {% if results is defined %} {% for r in results %}
+                {% if results is defined %} {% for r in results %} <!--Not sure why if loop isnt displaying properly -->
                 <div class="col card-container">
                     <div class="card text-center" style="width: 18rem;">
                         <img class="card-img-top" src="{{ r.img_url }}" alt="{{r.recipe_name }}">
@@ -52,4 +52,4 @@
     </div>
 </main>
 
-{% endblock %} {% block footer %} {% include 'includes/footer.html' %} {% endblock %}
+{% endblock %} {% block footer %} {% include 'includes/navbar.html' %} {% endblock %}

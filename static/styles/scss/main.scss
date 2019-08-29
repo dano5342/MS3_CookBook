@@ -101,7 +101,7 @@ html {
 .about-content {
     padding-top: 25px;
 }
-
+// Button Settings
 .btn-primary {
     background-color: $default-text;
     border-color: $default-text;
@@ -131,7 +131,7 @@ html {
     border-color: $main-bg;
     color: $footer;
 }
-
+//pagination style
 .pagination {
     padding-top: 15px;
 }
@@ -216,9 +216,7 @@ input {
     color: $footer;
 }
 
-.method {
-    
-}
+
 
 .ingredients {
     list-style: none;
