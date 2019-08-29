@@ -14,9 +14,9 @@ This website is aimed at a few different types of users:
 
 
 ### Features
-The main Features of this website will be CRUD utilities to be able to Create, Read, Update and Delete from an existing database of information, with subdatbases for storing ~~Cooktime/Preptime and displaying this data with D3/Crossfilter to display this easily. ~~ I decided against displaying cook/prep times as pie charts as this would have looked bad on the page layout.
+The main Features of this website will be CRUD utilities to be able to Create, Read, Update and Delete from an existing database of information, with subdatbases for storing ~~Cooktime/Preptime and displaying this data with D3/Crossfilter to display this easily.~~ I decided against displaying cook/prep times as pie charts as this would have looked bad on the page layout.
 
-~~Along side this there will be other subsets of data based on user reviews and how many up/downvotes these recipes have from other users. ~~
+~~Along side this there will be other subsets of data based on user reviews and how many up/downvotes these recipes have from other users.~~
 This was removed from my scope as CRUD was the main focus of this project. I think that my python logic here is good and that it displays a keen knowledge of how to link backend and front end together.
 
 The application displays the recipe, method and ingredients for each recipe in its own templated page, whilst also allowing the user to determine what type of cuisine this is and allowing them to attribute an image to each recipe that they upload. This can be easily modified too, taking the data back from the DB and parsing it into prepopulated forms for the user to browse and amend as necessary.
@@ -29,6 +29,8 @@ At some point i'd like to revisit this project and implement the data dashboard 
 I'd also like to make the page more streamline for example a single login/register page with 2 cards on the same page for easier logging in.
 In future I'd like the project to have the reviews displayed after each recipe, with a vote system to see which recipes are more popular and a display for this on a seperate page ranking from top to bottom.
 I'd also like to make sure in a future version that usernames are tied to the recipes they've created and therefore only they can access the CRUD functions for their own recipes to ensure the security of them.
+
+
 -------
 ### Technologies Used
 This application will make use of a few different technologies to help create a good user experience and keep load times low. 
@@ -57,12 +59,12 @@ Writing this project took me about a month, I had a lot of issues with bcrypt/we
 On top of this routing the ingredients/method parts of the recipes was a challenge too, as I wanted to store these in arrays as this made for easier inline list displays and template styling, however getting the forms to parse these to the server as arrays proved to be a bit of a beast. Displaying the data was a lot easier than taking it from the user.
 
 The project has been deployed on [Heroku](https://ms3-cookbook.herokuapp.com/) to host the site, and all git changes can be seen on my github profile. My deployed version will not have the following code 
-"""python 
+```python 
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
         port=int(os.environ.get('PORT')),
         debug=True) 
-        """
+```
 As this enables the user to see any potential bugs on the site and exploit this.
 Environment variables were stored in my `.bashrc` folder to prevent malicious coders from exploiting my database and ruining work, I did accidentally upload these in a previous repository as can be seen in the first commit message on this project, however they are fully unavailable now.
 #### Deploying Locally
