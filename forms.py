@@ -14,7 +14,7 @@ class RegisterForm(FlaskForm):
     submit = SubmitField('Register')
 
 
-class RecipeForm(FlaskForm):########Form to take the recipe data from the user
+class RecipeForm(FlaskForm):
     recipe_name = StringField('Recipe Name:')
     recipe_type = StringField('Recipe Type:')
     recipe_desc = StringField('Description:')
