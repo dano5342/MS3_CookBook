@@ -7,6 +7,7 @@
         </div>
     </div>
     <form class="recipe-form-add text-center" method="POST">
+        {{ form.csrf_token }}
         <div class="row spacing">
             <div class="col">
                 <div class="card container add-container  d-flex justify-content-center">

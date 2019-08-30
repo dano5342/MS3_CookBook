@@ -10,8 +10,13 @@ from bson.objectid import ObjectId
 from forms import LoginForm, RegisterForm, RecipeForm
 from flask_login import (current_user, login_user, logout_user,
                          login_required, LoginManager, login_manager)
+from flask_wtf.csrf import CSRFProtect
+
+
+csrf = CSRFProtect()
 
 app = Flask(__name__)
+
 # Env Vars
 app.config["MONGO_DBNAME"] = "CookBook"
 app.config["MONGO_URI"] = os.getenv("MONGO_URI", "mongodb://localhost")
@@ -20,6 +25,8 @@ mongo = PyMongo(app)
 
 login_manager = LoginManager(app)
 
+
+csrf.init_app(app)
 
 @app.route('/')
 # Display recipes on the homepage
