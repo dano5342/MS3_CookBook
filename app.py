@@ -15,6 +15,7 @@ from flask_wtf.csrf import CSRFProtect
 
 csrf = CSRFProtect()
 
+
 app = Flask(__name__)
 
 # Env Vars

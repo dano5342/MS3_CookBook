@@ -160,6 +160,7 @@ html {
 .method {
     margin: 4px;
     padding: 2px;
+    font-size: 18px;
 }
 
 
@@ -214,10 +215,6 @@ input {
     border-color: $main-bg;
     border-radius: 0.5px;
     color: $footer;
-}
-
-.method {
-    
 }
 
 .ingredients {
