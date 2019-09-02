@@ -17,12 +17,12 @@ class RegisterForm(FlaskForm):
 ## Custom forms for single input fields. ARRAYS had to be done manually.
 
 class RecipeForm(FlaskForm):
-    recipe_name = StringField('Recipe Name:')
-    recipe_type = StringField('Recipe Type:')
-    recipe_desc = StringField('Description:')
-    serving = IntegerField('Serving Size:')
-    prep_time = IntegerField('Preparation Time:')
-    cook_time = IntegerField('Cooking Time:')
-    img_url = StringField('Got a photo link?:')
+    recipe_name = StringField('Recipe Name:', [InputRequired()])
+    recipe_type = StringField('Recipe Type:', [InputRequired()])
+    recipe_desc = StringField('Description:', [InputRequired()])
+    serving = IntegerField('Serving Size:', [InputRequired()])
+    prep_time = IntegerField('Preparation Time:', [InputRequired()])
+    cook_time = IntegerField('Cooking Time:', [InputRequired()])
+    img_url = StringField('Got a photo link?:', [Optional()])
     submit = SubmitField('Add Recipe')
 

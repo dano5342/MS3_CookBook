@@ -184,6 +184,11 @@ a:not([href]):not([tabindex]) {
     height: 100%;
 }
 
+a .nonlink {
+    text-decoration: none!important;
+    color: $main-bg!important;
+}
+
 /*-----------------------Add/Edit recipe styles */
 
 .recipe-container-add {

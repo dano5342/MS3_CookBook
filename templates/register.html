@@ -2,7 +2,7 @@
 <div class="container-fluid login-container">
     <form class="register_form text-center" method="POST">
         <img class="mb-4" src="{{url_for('static', filename='images/logo.png')}}" alt="CookBook Logo"> {{ form.hidden_tag() }}
-        <h6 class="text">Already a member? <a href="{{ url_for('login') }}"> Login here</a></h6>
+        <h6 class="text">Already a member? <a href="{{ url_for('login') }}" class="nonlink"> Login here</a></h6>
 
         <p>
             {{ form.username.label }}<br> {{ form.username(size=32, required=true, placeholder="JoeBloggs123") }}
@@ -14,7 +14,7 @@
             {{ form.password.label }}<br> {{ form.password(size=32, required=true, placeholder="Password") }}
         </p>
         <button class="btn btn-primary" type="submit" name="action">Register</button>
-        <h6><a href="{{url_for('index')}}">Go back</a></h6>
+        <h6><a href="{{url_for('index')}}" class="nonlink">Go back</a></h6>
     </form>
 </div>
 {% endblock %}

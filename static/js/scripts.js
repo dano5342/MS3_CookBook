@@ -22,7 +22,7 @@ let methodCount = $(".methods").length;
 /* Add new line */
 $(".m-add").click(function() {
     /* append form, insert before add/remove btns and clear existing values */
-    $(".methods:last").append("<input type='text' name='methods' class='methods'/>")
+    $(".methods:last").append("<input type='text' name='methods' class='methods' required placeholder='Boil water and drop in spaghetti, add balsamic vinegar to bring out a nice tangy flavour...'/>")
         .insertBefore(".m-add")
         .find("input[type='text']").val("");
     methodCount += 1;

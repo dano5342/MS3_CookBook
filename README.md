@@ -83,3 +83,7 @@ I'd like to also acknowledge Miguel Grinbergs Flask Mega Tutorial for his amazin
 [Corey Schafer](https://www.youtube.com/user/schafer5) and [PrettyPrinted](https://www.youtube.com/channel/UC-QDfvrRIDB6F0bIO4I4HkQ)'s Videos were exceptionally helpful during the building of this project.
 #### Media
 All images of food were sourced from Pexels or BBCGoodFood, acknowledgements will be made below. As above I do not own any copyright or ownership of these images.
+
+### Notes
+1. Whilst manually testing before submission I became aware of an error in the console `scripts.js:1 Uncaught SyntaxError: Identifier 'ingredientCounter' has already been declared at VM250 scripts.js:1` Whilst playing with this I was not sure how to end this, however this does not affect functionality in anyway that I can see.
+2. During development I decided to cull certain features, such as a Cusine Type with flags of the countries showing the type of foods, this was going to be coupled with the full text search however this didnt make it through to the final version. This is also true of a randomised carouself for showing 3 random recipes at the top.
