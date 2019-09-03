@@ -136,7 +136,7 @@ def login():
             session['username'] = request.form['username']
             session['logged in'] = True
             return redirect(url_for('index'))
-        flash('Incorrect Password.')
+        flash('Incorrect Username/Password combination.')
     return render_template('login.html', form=form)
 
 
@@ -173,7 +173,6 @@ def search():
     # Pagination within a search function.
     page_limit = 6  # Logic for pagination
     current_page = int(request.args.get('current_page', 1))
-    search_db = request.args['search_db']
     #  get the searchdb form and use this to check against the index in the DB
     search_db = request.args['search_db']
     #  Assistance for indexes and logic for this was given by Shane Muirhead
@@ -206,4 +205,4 @@ def logout():
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
             port=int(os.environ.get('PORT')),
-            debug=False)
+            debug=True)

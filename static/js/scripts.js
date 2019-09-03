@@ -1,4 +1,4 @@
-let ingredientCounter = $(".ingredients").length;
+let ingredientCounter = ($(".ingredients").length > 1) ? $(".ingredients").length : null;
 
 /* Add new ingredient line */
 $(".i-add").click(function() {
@@ -17,7 +17,7 @@ $(".i-remove").click(function() {
 });
 
 
-let methodCount = $(".methods").length;
+let methodCount = ($(".methods").length > 1) ? $(".methods").length : null;
 
 /* Add new line */
 $(".m-add").click(function() {

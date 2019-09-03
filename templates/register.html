@@ -13,6 +13,8 @@
         <p>
             {{ form.password.label }}<br> {{ form.password(size=32, required=true, placeholder="Password") }}
         </p>
+        <p>
+        {{ form.confirm.label }}<br> {{form.confirm}}</p>
         <button class="btn btn-primary" type="submit" name="action">Register</button>
         <h6><a href="{{url_for('index')}}" class="nonlink">Go back</a></h6>
     </form>

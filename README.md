@@ -45,7 +45,7 @@ This application will make use of a few different technologies to help create a 
 ### Testing
 During Development so far I've added return statements to ensure that the database is connected correctly. This has led me to implemement small changes in the code to make sure that it works each time I've committed - and where this hasnt worked properly, i've included notes in my commit messages to the code what errors were occuring and what my thought process was to get these implemented corretly.
 Manual testing was the main part of this project, As I was going for a user focus I wanted to ensure all parts of the project were user-centric and therefore manually adding in the code and ensuring the code was working before moving onto the next stage of development. This can be arduous as when you get stuck on a problem for a day or two you think of nothing else!
-
+I tested responsiveness on [Am I Responsive](http://ami.responsivedesign.is/) 
 
 Manual testing was done on responsiveness of the site for the following models of phone:
 1.  iPhone 5/6/7, X - This required some manipulation in SCSS to ensure that the page was full sized at all times, also using a -120% margin on a certain element that always seemed to get pushed up.
@@ -78,6 +78,7 @@ Environment variables were stored in my `.bashrc` folder to prevent malicious co
 ### Acknowledgements
 As a student of Code Institute, I'd like to thank my mentor for his help on the project scope and minor testing during our calls
 From the other students I'd like to thank Shane Muirhead, as he explained some of the documentation surrounding indexing for text search with mongo db and helped me with the logic for this, and password hashing differences.
+I also asked a question on [Stack Overflow](https://stackoverflow.com/questions/57594570/parsing-from-wtforms-into-an-array-in-mongodb?noredirect=1#comment101664057_57594570) However this was answered by myself, and did not end up making into the final version.
 ##### Guides
 I'd like to also acknowledge Miguel Grinbergs Flask Mega Tutorial for his amazing guide for a CRUD Blog site, whilst not fully read through it certainly helped in some aspects of the build.
 [Corey Schafer](https://www.youtube.com/user/schafer5) and [PrettyPrinted](https://www.youtube.com/channel/UC-QDfvrRIDB6F0bIO4I4HkQ)'s Videos were exceptionally helpful during the building of this project.
@@ -85,5 +86,5 @@ I'd like to also acknowledge Miguel Grinbergs Flask Mega Tutorial for his amazin
 All images of food were sourced from Pexels or BBCGoodFood, acknowledgements will be made below. As above I do not own any copyright or ownership of these images.
 
 ### Notes
-1. Whilst manually testing before submission I became aware of an error in the console `scripts.js:1 Uncaught SyntaxError: Identifier 'ingredientCounter' has already been declared at VM250 scripts.js:1` Whilst playing with this I was not sure how to end this, however this does not affect functionality in anyway that I can see.
-2. During development I decided to cull certain features, such as a Cusine Type with flags of the countries showing the type of foods, this was going to be coupled with the full text search however this didnt make it through to the final version. This is also true of a randomised carouself for showing 3 random recipes at the top.
+1. Whilst manually testing before submission I became aware of an error in the console `scripts.js:1 Uncaught SyntaxError: Identifier 'ingredientCounter' has already been declared at VM250 scripts.js:1` Whilst playing with this I was not sure how to end this, however this does not affect functionality in anyway that I can see, and doesnt occur in the pages the script was designed for.
+2. During development I decided to cull certain features, such as a Cusine Type with flags of the countries showing the type of foods, this was going to be coupled with the full text search however this didnt make it through to the final version. This is also true of a randomised carousel for showing 3 random recipes at the top.
