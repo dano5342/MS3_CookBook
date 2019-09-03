@@ -189,12 +189,12 @@ def search():
                                results=results, pages=pages,
                                current_page=current_page,
                                search_db=search_db, current_user=current_user,
-                               title="Your Results")
+                               title="Your Results", t_total=t_total)
     else:
         return render_template('search.html',
                                results=results, pages=pages,
                                current_page=current_page, search_db=search_db,
-                               title="Your Results")
+                               title="Your Results", t_total=t_total)
 
 
 @app.route('/logout')

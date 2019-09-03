@@ -22,7 +22,7 @@ and based on the recipe type with a text search index of the database -->
             <div class="container-fluid"></div>
             <div class="row" id="#recipes">
                 <!-- For loop for displaying recipes on the searched page, each carded and with an image-->
-                {% if results is defined %} {% for r in results %}
+                {% if t_total > 0 %} {% for r in results %}
                 <div class="col card-container">
                     <div class="card text-center" style="width: 18rem;">
                         <img class="card-img-top" src="{{ r.img_url }}" alt="{{r.recipe_name }}">
@@ -45,12 +45,9 @@ and based on the recipe type with a text search index of the database -->
         </ul>
     </div>
     {% else %}
-    <h6>Oops! No results matching your search!</h6>
+    <h4>Oops! No results matching your search!</h4>
     {% endif %}
-    <div class="container about-content">
-        <h6>About</h6>
-        <p>This site is a project for Code Institute, I hope that it can inspire users to cook more healthily and more often.</p>
-    </div>
+
 </main>
 
 {% endblock %} {% block footer %} {% include 'includes/footer.html' %} {% endblock %}
